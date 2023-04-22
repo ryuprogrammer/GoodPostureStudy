@@ -24,7 +24,7 @@ class TaskDataModel {
         return controller.container.viewContext
     }
     
-    private var Task: Task?
+    private var task: Task?
     
     // CoreDataからデータ取得
     func fetchAll() -> [Task] {
@@ -39,7 +39,7 @@ class TaskDataModel {
     
     // データを追加するメソッド
     func save(task: Task) {
-        let newTask = GoodPostureStudy_ryu.Task()
+        let newTask = Task(context: viewContext)
         newTask.task = task.task
         newTask.color = task.color
         newTask.startTime = task.startTime

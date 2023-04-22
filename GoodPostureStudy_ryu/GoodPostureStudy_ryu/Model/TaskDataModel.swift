@@ -53,6 +53,21 @@ class TaskDataModel {
         }
     }
     
+    func add(task: String, color: String, startTime: Date, endTime: Date, isDone: Bool) {
+        let newTask = Task(context: viewContext)
+        newTask.task = task
+        newTask.color = color
+        newTask.startTime = startTime
+        newTask.endTime = endTime
+        newTask.isDone = isDone
+        
+        do {
+            try viewContext.save()
+        } catch {
+            fatalError("データ保存失敗")
+        }
+    }
+    
     // データを削除するメソッド
     func delete(offsets: IndexSet) {
         let tasks = fetchAll()

@@ -27,6 +27,12 @@ struct AddView: View {
     // CoreDataに追加するプロパティ
     @State var taskData: Task?
     
+    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
+    @Environment(\.managedObjectContext) private var context
+    // データの取得処理
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
+    var tasks: FetchedResults<Task>
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -40,7 +46,7 @@ struct AddView: View {
 //                        .listRowSeparator(.hidden)
                     
                     Section {
-                        TextField("やることを入力", text: $task)
+                        TextField("やることを入力", text: $addViewModel.task2)
                             .font(.system(size: 20))
                             .frame(width: 360, height: 20)
                             .frame(maxWidth: .infinity)
@@ -79,7 +85,7 @@ struct AddView: View {
                     Section {
                         HStack {
                             DatePicker("",
-                                       selection: $startTime,
+                                       selection: $addViewModel.startTime,
                                        displayedComponents: .hourAndMinute)
                             .environment(\.locale, Locale(identifier: "ja_JP"))
                             .frame(width: 80)
@@ -87,7 +93,7 @@ struct AddView: View {
                             Text("〜")
                             
                             DatePicker("",
-                                       selection: $endTime,
+                                       selection: $addViewModel.endTime,
                                        displayedComponents: .hourAndMinute)
                             .environment(\.locale, Locale(identifier: "ja_JP"))
                             .frame(width: 80)
@@ -102,16 +108,11 @@ struct AddView: View {
                 .listStyle(.plain)
                 
                 Button {
-                    if task == "" {
+                    if addViewModel.task2 == "" {
                         isShowAlert = true
                     } else {
-                        addViewModel.task?.task = task
-                        addViewModel.task?.color = "red"
-                        addViewModel.task?.startTime = startTime
-                        addViewModel.task?.endTime = endTime
-                        if let task = addViewModel.task {
-                            addViewModel.add(task: task)
-                        }
+                        addViewModel.add2(task: addViewModel.task2, color: addViewModel.color, startTime: addViewModel.startTime, endTime: addViewModel.endTime, isDone: false)
+                        print(tasks)
                     }
                 } label: {
                     Text("タスクを追加")

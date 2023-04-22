@@ -1,0 +1,2 @@
+# GoodPostureStudy_ryu
+正しい姿勢で勉強ができるアプリ

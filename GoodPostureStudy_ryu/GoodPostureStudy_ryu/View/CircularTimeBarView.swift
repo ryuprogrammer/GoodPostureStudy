@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CircularTimeBarView: View {
+    // CircularTimeBarViewModelのインスタンス生成
+    let circularTimeBarViewModel = CircularTimeBarViewModel()
     // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
     @Environment(\.managedObjectContext) private var context
     // データの取得処理
@@ -47,6 +49,7 @@ struct CircularTimeBarView: View {
             }
             
             ForEach(tasks) { data in
+                let color = circularTimeBarViewModel.colorChangeToColor(colorName: data.color!)
                 // 進捗を示す円
                 // 0:1 = 0:12
                 // 0:1 = 0:60
@@ -57,7 +60,7 @@ struct CircularTimeBarView: View {
                                   24))
                 // 線の端の形状などを指定
                     .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .butt, lineJoin: .round))
-                    .fill(LinearGradient(gradient: Gradient(colors: [.pink,.purple]),
+                    .fill(LinearGradient(gradient: Gradient(colors: [color, color.opacity(0.5)]),
                                          startPoint: .top,
                                          endPoint: .bottom))
                     .rotationEffect(Angle(degrees: 90))

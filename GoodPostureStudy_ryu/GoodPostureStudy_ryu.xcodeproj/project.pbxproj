@@ -22,6 +22,8 @@
 		5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06029F4406000BA7A86 /* ReportView.swift */; };
 		5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */; };
 		5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */; };
+		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
+		5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		5AFCD06029F4406000BA7A86 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarView.swift; sourceTree = "<group>"; };
 		5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,9 @@
 		5AFCD05429F41F7F00BA7A86 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */,
 				5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */,
+				5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -203,6 +209,8 @@
 				5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */,
 				5AFCD03F29F4136E00BA7A86 /* ContentView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,
+				5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */,
+				5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */,
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,
 				5AFCD05729F41FE800BA7A86 /* TaskDataModel.swift in Sources */,
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,

@@ -7,19 +7,35 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class AddViewModel: ObservableObject {
-    @Published var task: Task?
-    @Published var task2: String = ""
+    @Published var task: String = ""
     @Published var color: String = ""
     @Published var startTime: Date = Date()
     @Published var endTime: Date = Date() + (60*60)
     
-    func add(task: Task) {
-        TaskDataModel.shared.save(task: task)
+    struct AlertItem: Identifiable {
+        var id = UUID()
+        var alert: Alert
     }
     
-    func add2(task: String, color: String, startTime: Date, endTime: Date, isDone: Bool) {
-        TaskDataModel.shared.add(task: task, color: color, startTime: startTime, endTime: endTime, isDone: isDone)
+    // 追加するタスクが有効かチェック
+    func checkTask(task: String, startTime: Date, endTime: Date) -> AlertItem? {
+        var showingAlert: AlertItem?
+        if task == "" { // タスクが空欄
+            showingAlert = AlertItem(alert: Alert(title: Text("やることの項目でエラー"), message: Text("やることを入力してください。")))
+        } else if startTime > endTime { // 開始時間が終了時間よりも早い
+            showingAlert = AddViewModel.AlertItem(alert: Alert(title: Text("時間の項目でエラー"), message: Text("開始時間よりも終了時間が早いです。")))
+        }
+        return showingAlert
+    }
+    
+    func add(task: String, color: String, startTime: Date, endTime: Date) {
+        TaskDataModel.shared.add(task: task, color: color, startTime: startTime, endTime: endTime)
+    }
+    
+    func colorChangeToString(color: Color) -> String {
+        return ColorModel.colorModel.colorChangeToString(color: color)
     }
 }

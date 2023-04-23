@@ -39,11 +39,11 @@ struct AddView: View {
                 Divider()
                 
                 List {
-//                    // 時間を表示
-//                    CircularTimeBarView()
-//                        .scaleEffect(CGSize(width: 0.7, height: 0.7))
-//                        .frame(maxWidth: .infinity)
-//                        .listRowSeparator(.hidden)
+                    // 時間を表示
+                    CircularTimeBarView()
+                        .scaleEffect(CGSize(width: 0.7, height: 0.7))
+                        .frame(maxWidth: .infinity)
+                        .listRowSeparator(.hidden)
                     
                     Section {
                         TextField("やることを入力", text: $addViewModel.task2)

@@ -22,10 +22,10 @@ struct HomeView: View {
             VStack {
                 Divider()
                 
-//                // 時間を表示
-//                CircularTimeBarView()
-//                    .frame(height: 350)
-//                    .fixedSize()
+                // 時間を表示
+                CircularTimeBarView()
+                    .frame(height: 350)
+                    .fixedSize()
                 
                 List {
                     Section {

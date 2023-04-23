@@ -17,6 +17,15 @@ struct PersistenceController {
 //            let newItem = Item(context: viewContext)
 //            newItem.timestamp = Date()
 //        }
+        let calender = Calendar(identifier: .gregorian)
+        for _ in 0 ..< 10 {
+            let newTask = Task(context: viewContext)
+            newTask.startTime = calender.date(from: DateComponents(year: 2020, month: 4, day: 10, hour: 10, minute: 0, second: 0))!
+            newTask.endTime = calender.date(from: DateComponents(year: 2020, month: 4, day: 10, hour: 14, minute: 0, second: 0))!
+            newTask.color = "blue"
+            newTask.task = "日曜日もプログラミング"
+            newTask.isDone = false
+        }
         do {
             try viewContext.save()
         } catch {

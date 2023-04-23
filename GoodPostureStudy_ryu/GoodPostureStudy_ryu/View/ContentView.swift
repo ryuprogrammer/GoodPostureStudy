@@ -10,9 +10,37 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    // 西暦（gregorian）カレンダーを生成
+    let calendar = Calendar(identifier: .gregorian)
+    // 現在日時を取得
+    @State var nowDate = Date()
     var body: some View {
-        Text("a")
+        TabView {
+            HomeView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.triangle")
+                        Text("ホーム")
+                    }
+                }
+            
+            AddView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "highlighter")
+                        Text("タスク追加")
+                    }
+                }
+            
+            ReportView()
+                .tabItem {
+                    VStack {
+                        // 今日の日付のアイコンを表示
+                        Image(systemName: "\(Int(calendar.component(.day, from: nowDate))).square.fill")
+                        Text("レポート")
+                    }
+                }
+        }
     }
 }
 

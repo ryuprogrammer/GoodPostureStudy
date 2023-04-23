@@ -16,6 +16,7 @@ struct HomeView: View {
     // データの取得処理
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
     var tasks: FetchedResults<Task>
+    @State var selectedTask: Task?
 
     var body: some View {
         NavigationView {
@@ -33,7 +34,7 @@ struct HomeView: View {
                         ForEach(tasks) { data in
                             if data.isDone == false {
                                 Button {
-    //                                selectedTask = data
+                                    selectedTask = data
                                 } label: {
                                     HStack {
                                         Image(systemName: "highlighter")
@@ -122,9 +123,9 @@ struct HomeView: View {
             }
             .navigationTitle("ホーム")
             .navigationBarTitleDisplayMode(.inline)
-//            .fullScreenCover(item: $selectedTask) { _ in
-//                BodyPoseView()
-//            }
+            .fullScreenCover(item: $selectedTask) { _ in
+                BodyPoseView()
+            }
         }
     }
 }

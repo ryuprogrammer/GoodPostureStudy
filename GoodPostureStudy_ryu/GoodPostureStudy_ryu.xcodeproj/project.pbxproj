@@ -24,6 +24,7 @@
 		5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */; };
 		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
 		5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */; };
+		5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
+		5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				5AFCD03E29F4136E00BA7A86 /* ContentView.swift */,
 				5AFCD05A29F4324B00BA7A86 /* HomeView.swift */,
 				5AFCD05C29F4389100BA7A86 /* AddView.swift */,
+				5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */,
 				5AFCD06029F4406000BA7A86 /* ReportView.swift */,
 				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
 			);
@@ -213,6 +216,7 @@
 				5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */,
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,
 				5AFCD05729F41FE800BA7A86 /* TaskDataModel.swift in Sources */,
+				5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */,
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,
 				5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */,
 			);
@@ -346,6 +350,7 @@
 				DEVELOPMENT_TEAM = 254E5TZV4C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "姿勢を検知するためにカメラを使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -375,6 +380,7 @@
 				DEVELOPMENT_TEAM = 254E5TZV4C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "姿勢を検知するためにカメラを使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

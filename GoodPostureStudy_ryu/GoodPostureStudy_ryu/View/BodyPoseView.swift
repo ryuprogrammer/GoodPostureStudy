@@ -27,6 +27,8 @@ struct BodyPoseView: View {
             
             BodyLineView(bodyPoints: camera.bodyPoints)
             
+            MaskView()
+            
 //            VStack {
 //                Text("体の角度")
 //                    .bold()

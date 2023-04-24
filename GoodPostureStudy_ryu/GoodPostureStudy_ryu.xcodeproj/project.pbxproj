@@ -25,6 +25,8 @@
 		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
 		5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */; };
 		5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */; };
+		5AFCD06D29F6D89A00BA7A86 /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06C29F6D89A00BA7A86 /* MaskView.swift */; };
+		5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseView.swift; sourceTree = "<group>"; };
+		5AFCD06C29F6D89A00BA7A86 /* MaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
+		5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				5AFCD05A29F4324B00BA7A86 /* HomeView.swift */,
 				5AFCD05C29F4389100BA7A86 /* AddView.swift */,
 				5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */,
+				5AFCD06C29F6D89A00BA7A86 /* MaskView.swift */,
+				5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */,
 				5AFCD06029F4406000BA7A86 /* ReportView.swift */,
 				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
 			);
@@ -207,11 +213,13 @@
 				5AFCD04929F4136F00BA7A86 /* GoodPostureStudy_ryu.xcdatamodeld in Sources */,
 				5AFCD05D29F4389100BA7A86 /* AddView.swift in Sources */,
 				5AFCD05129F41E5700BA7A86 /* Task+CoreDataClass.swift in Sources */,
+				5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */,
 				5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */,
 				5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */,
 				5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */,
 				5AFCD03F29F4136E00BA7A86 /* ContentView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,
+				5AFCD06D29F6D89A00BA7A86 /* MaskView.swift in Sources */,
 				5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */,
 				5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */,
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,

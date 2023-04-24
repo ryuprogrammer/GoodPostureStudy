@@ -33,31 +33,31 @@ struct HomeView: View {
                         // 今日やること
                         ForEach(tasks) { data in
                             if data.isDone == false {
-                                Button {
-                                    selectedTask = data
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "highlighter")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(8)
-                                            .foregroundColor(.white)
-                                            .frame(width: 50, height: 50)
-                                            .background(homeViewModel.colorChangeToColor(colorName: data.color!).opacity(0.5))
-                                            .cornerRadius(8)
-                                            .shadow(color: homeViewModel.colorChangeToColor(colorName: data.color!), radius: 5, x: 3, y: 3)
-                                            .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
+                                HStack {
+                                    Image(systemName: "highlighter")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding(8)
+                                        .foregroundColor(.white)
+                                        .frame(width: 50, height: 50)
+                                        .background(homeViewModel.colorChangeToColor(colorName: data.color!).opacity(0.5))
+                                        .cornerRadius(8)
+                                        .shadow(color: homeViewModel.colorChangeToColor(colorName: data.color!), radius: 5, x: 3, y: 3)
+                                        .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
+                                    
+                                    VStack {
+                                        Text(data.task!)
+                                            .font(.system(size: 20))
+                                            .bold()
                                         
-                                        VStack {
-                                            Text(data.task!)
-                                                .font(.system(size: 20))
-                                                .bold()
-                                            
-                                            Text("\(homeViewModel.dateString(date: data.startTime!))〜\(homeViewModel.dateString(date: data.endTime!))")
-                                                .font(.system(size: 15))
-                                        }
-                                        .frame(width: 200)
-                                        
+                                        Text("\(homeViewModel.dateString(date: data.startTime!))〜\(homeViewModel.dateString(date: data.endTime!))")
+                                            .font(.system(size: 15))
+                                    }
+                                    .frame(width: 200)
+                                    
+                                    Button {
+                                        selectedTask = data
+                                    } label: {
                                         Text("スタート")
                                             .font(.title3)
                                             .frame(width: 120, height: 40)

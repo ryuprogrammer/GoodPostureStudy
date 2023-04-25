@@ -30,6 +30,7 @@
 		5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */; };
 		5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07429F77B9200BA7A86 /* CameraModel.swift */; };
 		5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */; };
+		5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07929F842E200BA7A86 /* PostureModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLineView.swift; sourceTree = "<group>"; };
 		5AFCD07429F77B9200BA7A86 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseViewModel.swift; sourceTree = "<group>"; };
+		5AFCD07929F842E200BA7A86 /* PostureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostureModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				5AFCD05629F41FE800BA7A86 /* TaskDataModel.swift */,
+				5AFCD07929F842E200BA7A86 /* PostureModel.swift */,
 				5AFCD07429F77B9200BA7A86 /* CameraModel.swift */,
 				5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */,
 				5AFCD04F29F41E5700BA7A86 /* Task+CoreDataClass.swift */,
@@ -234,6 +237,7 @@
 				5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */,
 				5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */,
 				5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */,
+				5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */,
 				5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */,
 				5AFCD03F29F4136E00BA7A86 /* ContentView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,

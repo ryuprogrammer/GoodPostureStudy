@@ -9,6 +9,18 @@ import Foundation
 import UIKit
 
 class BodyPoseViewModel: ObservableObject {
+    // 勉強のタイマーのオンオフ
+    @Published var isTimer: Bool = true
+    // タイマーを止めた理由
+    @Published var alertText: String = ""
+    // 画面に表示する勉強時間
+    @Published var showStudyTime: String = ""
+    // タイムバーの進捗割合
+    @Published var timeCircleRatio: CGFloat = 0.0
+    // 残り時間
+    var timeLeft: Double = 0.0
+    // PostureModelのインスタンス生成
+    let postureModel = PostureModel()
     // Calender()のインスタンス生成（グレゴリオ暦を採用）
     let calender = Calendar(identifier: .gregorian)
     // 時間表示の書式を設定
@@ -21,121 +33,62 @@ class BodyPoseViewModel: ObservableObject {
     // 開始時間と終了時間から勉強時間（allTime）を算出
     func calculateAllTime(startTime: Date, endTime: Date) -> Double {
         var allTime: Double = 0.0
-        
         if let time = calender.dateComponents([.second], from: startTime, to: endTime).second {
             allTime = Double(time)
         }
-        
         return allTime
     }
     
     // 残り時間（timeLeft）を計算
-    func calculateTimeLeft(startTime: Date, studyTime: Date?, studyTimeCount: Int) -> Double {
-        var timeLeft: Double = 0.0
+    func calculateTimeLeft(startTime: Date, studyTime: Date?, studyTimeCount: Int) {
         if let time = studyTime,
            let second = calender.dateComponents([.second],
                                                 from: startTime,
                                                 to: time + TimeInterval(studyTimeCount)).second {
             timeLeft = Double(second)
         }
-        
-        return timeLeft
     }
     
     // 勉強時間、画面に表示するテキストを更新
-    func studyTimeText(allTime: Double, studyTimeCount: Int, timeLeft: Double) -> String {
-        // 表示するテキスト
-        var showText: String = ""
+    func studyTimeText(studyTimeCount: Int, allTime: Double) {
         // 開始時間から終了時間までの秒数
         let allTimeSecond = Int(allTime) * 60
         
         if studyTimeCount < allTimeSecond {
             if let timeText = formatter.string(from: timeLeft) {
                 // 勉強時間を表示
-                showText = timeText
+                showStudyTime = timeText
             }
         } else if studyTimeCount > allTimeSecond {
             // 勉強終了
-            showText = "finish"
+            showStudyTime = "finish"
         }
-        
-        return showText
-    }
-}
-
-struct Posture {
-    // 体の角度
-    func postureAngle(bodyPoints: BodyPoints) -> CGFloat {
-        // （首、腰、両膝の中間点）の座標
-        let neck = bodyPoints.neck
-        let root = bodyPoints.root
-        let rightKnee = bodyPoints.rightKnee
-        let leftKnee = bodyPoints.leftKnee
-        let kneesCenter = CGPoint(x: (Double(rightKnee.point.x) + Double(leftKnee.point.x))/2, y: Double(rightKnee.point.y) + Double(leftKnee.point.y)/2)
-        
-        //角度の中心位置
-        let x0 = root.point.x
-        let y0 = root.point.y
-        //方向指定1
-        let x1 = neck.point.x
-        let y1 = neck.point.y
-        //方向指定2
-        let x2 = kneesCenter.x
-        let y2 = kneesCenter.y
-
-        //角度計算開始
-        let vec1 = [x1-x0, y1-y0]
-        let vec2 = [x2-x0, y2-y0]
-        let absvec1 = sqrt(pow(vec1[0], 2) + pow(vec1[1], 2))
-        let absvec2 = sqrt(pow(vec2[0], 2) + pow(vec2[1], 2))
-        let inner = vec1[0] * vec2[0] + vec1[1] * vec2[1]
-        let cos_theta = inner / (absvec1 * absvec2)
-        let theta = acos(cos_theta) * 180 / .pi
-        
-        return theta
     }
     
-    // 足組みの判定
-    func crossLegs(bodyPoints: BodyPoints) -> Bool {
-        let rootY = bodyPoints.root.point.y
-        let rightKneeY = bodyPoints.rightKnee.point.y
-        let leftKneeY = bodyPoints.leftKnee.point.y
-        let kneesCenterY = (rightKneeY + leftKneeY)/2
+    // 体のポーズによってタイマーを止める
+    func stopTimer(bodyPoints: BodyPoints?) {
+        // 足組み
         var isCrossLegs: Bool = false
+        // 伸び
+        var isStretch: Bool = false
         
-        if rootY >= kneesCenterY {
-            isCrossLegs = true
+        if let points = bodyPoints {
+            isCrossLegs = postureModel.crossLegs(bodyPoints: points)
+            isStretch = postureModel.stretch(bodyPoints: points)
+        }
+        
+        if isCrossLegs && isStretch {
+            isTimer = false
+            alertText = "伸びをして足を組んでいるためタイマーを止めています。"
+        } else if isCrossLegs {
+            isTimer = false
+            alertText = "足を組んでいるためタイマーを止めています。"
+        } else if isStretch {
+            isTimer = false
+            alertText = "伸びをしているのでタイマーを止めています。"
         } else {
-            isCrossLegs = false
+            isTimer = true
+            alertText = "正しい姿勢です！"
         }
-        
-        return isCrossLegs
-    }
-    
-    // 伸びの判定
-    func stretch(bodyPoints: BodyPoints) -> Bool {
-        let rightWrist = bodyPoints.rightWrist.point.y
-        let rightElbow = bodyPoints.rightElbow.point.y
-        let rightShoulder = bodyPoints.rightShoulder.point.y
-        let leftWrist = bodyPoints.leftWrist.point.y
-        let leftElbow = bodyPoints.leftElbow.point.y
-        let leftShoulder = bodyPoints.leftShoulder.point.y
-        
-        var isStretch = false
-        
-        // 手首、肘、肩の高さで伸びを判定
-        if rightWrist < rightElbow &&
-            rightElbow < rightShoulder &&
-            leftWrist < leftElbow &&
-            leftElbow < leftShoulder {
-            isStretch = true
-        }
-        return isStretch
-    }
-    
-    // 画面上の２点間の距離を三平方の定理より求める
-    private func distance(from: CGPoint, to: CGPoint) -> CGFloat {
-        return sqrt(pow(from.x - to.x, 2) + pow(from.y - to.y, 2))
     }
 }
-

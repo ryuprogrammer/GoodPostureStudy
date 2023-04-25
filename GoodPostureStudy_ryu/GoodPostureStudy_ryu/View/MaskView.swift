@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct MaskView: View {
+    @Binding var isTimer: Bool
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var showText: String = ""
     let calender = Calendar(identifier: .gregorian)
     let formatter = DateComponentsFormatter()
-    init() {
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.hour, .minute, .second]
-    }
     @State var data = Data()
     @State var count: Int = 0
     @State var startTime = Date()
@@ -59,24 +56,24 @@ struct MaskView: View {
             .frame(width: 400)
             
             VStack {
-                Spacer()
-                    .frame(height: 500)
-                
                 Button {
-                    isStart = false
+                    isTimer = false
                 } label: {
                     Text("止める")
                 }
 
                 Button {
-                    isStart = true
+                    isTimer = true
                 } label: {
                     Text("再開")
                 }
+                
+                Spacer()
+                    .frame(height: 400)
             }
         }
         .onReceive(timer) { timer in
-            if isStart {
+            if isTimer {
                 withAnimation {
                     count += 1
                 }
@@ -100,6 +97,8 @@ struct MaskView: View {
             }
         }
         .onAppear {
+            formatter.unitsStyle = .positional
+            formatter.allowedUnits = [.hour, .minute, .second]
             if let time = calender.dateComponents([.second], from: startTime, to: endTime).second {
                 allTime = Double(time)
             }
@@ -108,8 +107,8 @@ struct MaskView: View {
     }
 }
 
-struct MaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        MaskView()
-    }
-}
+//    struct MaskView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            MaskView(isTimer: <#Binding<Bool>#>)
+//        }
+//    }

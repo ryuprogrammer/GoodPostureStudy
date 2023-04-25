@@ -18,6 +18,10 @@ struct BodyPoseView: View {
     @State var bodyAngle: CGFloat = 0
     // 足を組んでいるか
     @State var isCrossLegs: Bool = false
+    // 伸びをしてるか
+    @State var isStretch: Bool = false
+    // タイマーをストップするか
+    @State var isTimer: Bool = true
     
     @State private var timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     var body: some View {
@@ -27,7 +31,24 @@ struct BodyPoseView: View {
             
             BodyLineView(bodyPoints: camera.bodyPoints)
             
-            MaskView()
+            MaskView(isTimer: $isTimer)
+            
+            VStack {
+                Spacer()
+                    .frame(height: 400)
+                
+                Button {
+                    isTimer.toggle()
+                } label: {
+                    Text("タイマー")
+                        .frame(width: 200, height: 80)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(20)
+            }
+            }
+
             
 //            VStack {
 //                Text("体の角度")
@@ -49,12 +70,14 @@ struct BodyPoseView: View {
             if let points: BodyPoints = camera.bodyPoints {
                 bodyAngle = posture.postureAngle(bodyPoints: points)
                 isCrossLegs = posture.crossLegs(bodyPoints: points)
+                isStretch = posture.stretch(bodyPoints: points)
             }
         }
     }
 }
 
 struct Posture {
+    // 体の角度
     func postureAngle(bodyPoints: BodyPoints) -> CGFloat {
         // （首、腰、両膝の中間点）の座標
         let neck = bodyPoints.neck
@@ -85,6 +108,7 @@ struct Posture {
         return theta
     }
     
+    // 足組みの判定
     func crossLegs(bodyPoints: BodyPoints) -> Bool {
         let rootY = bodyPoints.root.point.y
         let rightKneeY = bodyPoints.rightKnee.point.y
@@ -99,6 +123,26 @@ struct Posture {
         }
         
         return isCrossLegs
+    }
+    
+    // 伸びの判定
+    func stretch(bodyPoints: BodyPoints) -> Bool {
+        let rightWrist = bodyPoints.rightWrist.point.y
+        let rightKnee = bodyPoints.rightKnee.point.y
+        let rightShoulder = bodyPoints.rightShoulder.point.y
+        let leftWrist = bodyPoints.leftWrist.point.y
+        let leftKnee = bodyPoints.leftKnee.point.y
+        let leftShoulder = bodyPoints.leftShoulder.point.y
+        
+        var isStretch = false
+        
+        if rightWrist > rightKnee &&
+            rightKnee > rightShoulder &&
+            leftWrist > leftKnee &&
+            leftKnee > leftShoulder {
+            isStretch = true
+        }
+        return isStretch
     }
 }
 

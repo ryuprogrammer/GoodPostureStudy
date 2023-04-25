@@ -25,8 +25,11 @@
 		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
 		5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */; };
 		5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */; };
-		5AFCD06D29F6D89A00BA7A86 /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06C29F6D89A00BA7A86 /* MaskView.swift */; };
 		5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */; };
+		5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07029F77AFB00BA7A86 /* CameraView.swift */; };
+		5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */; };
+		5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07429F77B9200BA7A86 /* CameraModel.swift */; };
+		5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +52,11 @@
 		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseView.swift; sourceTree = "<group>"; };
-		5AFCD06C29F6D89A00BA7A86 /* MaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskView.swift; sourceTree = "<group>"; };
 		5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		5AFCD07029F77AFB00BA7A86 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLineView.swift; sourceTree = "<group>"; };
+		5AFCD07429F77B9200BA7A86 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5AFCD05629F41FE800BA7A86 /* TaskDataModel.swift */,
+				5AFCD07429F77B9200BA7A86 /* CameraModel.swift */,
 				5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */,
 				5AFCD04F29F41E5700BA7A86 /* Task+CoreDataClass.swift */,
 				5AFCD05029F41E5700BA7A86 /* Task+CoreDataProperties.swift */,
@@ -118,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */,
+				5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */,
 				5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */,
 				5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */,
 			);
@@ -131,12 +139,21 @@
 				5AFCD05A29F4324B00BA7A86 /* HomeView.swift */,
 				5AFCD05C29F4389100BA7A86 /* AddView.swift */,
 				5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */,
-				5AFCD06C29F6D89A00BA7A86 /* MaskView.swift */,
-				5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */,
 				5AFCD06029F4406000BA7A86 /* ReportView.swift */,
-				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
+				5AFCD07829F77E2E00BA7A86 /* ViewMaterial */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5AFCD07829F77E2E00BA7A86 /* ViewMaterial */ = {
+			isa = PBXGroup;
+			children = (
+				5AFCD07029F77AFB00BA7A86 /* CameraView.swift */,
+				5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */,
+				5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */,
+				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
+			);
+			path = ViewMaterial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AFCD05B29F4324B00BA7A86 /* HomeView.swift in Sources */,
+				5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */,
 				5AFCD04929F4136F00BA7A86 /* GoodPostureStudy_ryu.xcdatamodeld in Sources */,
 				5AFCD05D29F4389100BA7A86 /* AddView.swift in Sources */,
 				5AFCD05129F41E5700BA7A86 /* Task+CoreDataClass.swift in Sources */,
@@ -219,14 +237,16 @@
 				5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */,
 				5AFCD03F29F4136E00BA7A86 /* ContentView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,
-				5AFCD06D29F6D89A00BA7A86 /* MaskView.swift in Sources */,
+				5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */,
 				5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */,
 				5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */,
+				5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */,
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,
 				5AFCD05729F41FE800BA7A86 /* TaskDataModel.swift in Sources */,
 				5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */,
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,
 				5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */,
+				5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

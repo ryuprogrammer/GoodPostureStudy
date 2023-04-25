@@ -6,6 +6,62 @@
 //
 
 import Foundation
+import UIKit
+
+class BodyPoseViewModel: ObservableObject {
+    // Calender()のインスタンス生成（グレゴリオ暦を採用）
+    let calender = Calendar(identifier: .gregorian)
+    // 時間表示の書式を設定
+    let formatter = DateComponentsFormatter()
+    init() {
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.hour, .minute, .second]
+    }
+    
+    // 開始時間と終了時間から勉強時間（allTime）を算出
+    func calculateAllTime(startTime: Date, endTime: Date) -> Double {
+        var allTime: Double = 0.0
+        
+        if let time = calender.dateComponents([.second], from: startTime, to: endTime).second {
+            allTime = Double(time)
+        }
+        
+        return allTime
+    }
+    
+    // 残り時間（timeLeft）を計算
+    func calculateTimeLeft(startTime: Date, studyTime: Date?, studyTimeCount: Int) -> Double {
+        var timeLeft: Double = 0.0
+        if let time = studyTime,
+           let second = calender.dateComponents([.second],
+                                                from: startTime,
+                                                to: time + TimeInterval(studyTimeCount)).second {
+            timeLeft = Double(second)
+        }
+        
+        return timeLeft
+    }
+    
+    // 勉強時間、画面に表示するテキストを更新
+    func studyTimeText(allTime: Double, studyTimeCount: Int, timeLeft: Double) -> String {
+        // 表示するテキスト
+        var showText: String = ""
+        // 開始時間から終了時間までの秒数
+        let allTimeSecond = Int(allTime) * 60
+        
+        if studyTimeCount < allTimeSecond {
+            if let timeText = formatter.string(from: timeLeft) {
+                // 勉強時間を表示
+                showText = timeText
+            }
+        } else if studyTimeCount > allTimeSecond {
+            // 勉強終了
+            showText = "finish"
+        }
+        
+        return showText
+    }
+}
 
 struct Posture {
     // 体の角度
@@ -59,21 +115,27 @@ struct Posture {
     // 伸びの判定
     func stretch(bodyPoints: BodyPoints) -> Bool {
         let rightWrist = bodyPoints.rightWrist.point.y
-        let rightKnee = bodyPoints.rightKnee.point.y
+        let rightElbow = bodyPoints.rightElbow.point.y
         let rightShoulder = bodyPoints.rightShoulder.point.y
         let leftWrist = bodyPoints.leftWrist.point.y
-        let leftKnee = bodyPoints.leftKnee.point.y
+        let leftElbow = bodyPoints.leftElbow.point.y
         let leftShoulder = bodyPoints.leftShoulder.point.y
         
         var isStretch = false
         
-        if rightWrist > rightKnee &&
-            rightKnee > rightShoulder &&
-            leftWrist > leftKnee &&
-            leftKnee > leftShoulder {
+        // 手首、肘、肩の高さで伸びを判定
+        if rightWrist < rightElbow &&
+            rightElbow < rightShoulder &&
+            leftWrist < leftElbow &&
+            leftElbow < leftShoulder {
             isStretch = true
         }
         return isStretch
+    }
+    
+    // 画面上の２点間の距離を三平方の定理より求める
+    private func distance(from: CGPoint, to: CGPoint) -> CGFloat {
+        return sqrt(pow(from.x - to.x, 2) + pow(from.y - to.y, 2))
     }
 }
 

@@ -14,6 +14,8 @@ struct BodyPoseView: View {
     @ObservedObject var camera = CameraModel()
     // Postureのインスタンス生成
     @State var posture = Posture()
+    // BodyPoseViewModelのインスタンス生成
+    @ObservedObject var bodyPoseViewModel = BodyPoseViewModel()
     // 背骨の角度
     @State var bodyAngle: CGFloat = 0
     // 足を組んでいるか
@@ -28,10 +30,6 @@ struct BodyPoseView: View {
     @State private var studyTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // 画面に表示するテキスト（タイマーの表示など）
     @State var showText: String = ""
-    // Calender()のインスタンス生成（グレゴリオ暦を採用）
-    let calender = Calendar(identifier: .gregorian)
-    // 時間表示の書式を設定
-    let formatter = DateComponentsFormatter()
     // 秒数
     @State var studyTimeCount: Int = 0
     @State var startTime = Date()
@@ -42,6 +40,11 @@ struct BodyPoseView: View {
     @State var timeLeft: Double = 0.0
     // 全勉強時間
     @State var allTime: Double = 0.0
+    // Viewの背景色のプロパティ（ジャンケンの手が有効の時青、無効の時赤に変化）
+    @State private var backgroundColor = Color.red
+    // ユーザーのデバイスの画面の大きさ
+    let UserScreenWidth: Double = UIScreen.main.bounds.size.width
+    let UserScreenHeight: Double = UIScreen.main.bounds.size.height
     
     var body: some View {
         ZStack {
@@ -49,6 +52,12 @@ struct BodyPoseView: View {
                 .ignoresSafeArea(.all)
             
             BodyLineView(bodyPoints: camera.bodyPoints)
+            
+            // 画面の大きさに合わせて画面の縁に色をつける
+            RoundedRectangle(cornerRadius: 60)
+                .stroke(backgroundColor.opacity(0.5), lineWidth: 50)
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: UserScreenWidth, height: UserScreenHeight)
             
             // タイムバー表示
             ZStack {
@@ -101,6 +110,7 @@ struct BodyPoseView: View {
                 } else {
                     isTimer = true
                 }
+                print("伸びをしてい\(isStretch ? "る":"ない")")
             }
         }
         .onReceive(studyTimer) { _ in
@@ -109,31 +119,16 @@ struct BodyPoseView: View {
                     studyTimeCount += 1
                 }
             }
-            if let time = studyTime,
-               let second = calender.dateComponents([.second],
-                                                    from: startTime,
-                                                    to: time + TimeInterval(studyTimeCount)).second {
-                timeLeft = Double(second)
-            }
             
-            // 開始時間から終了時間までの秒数
-            let timeLeftSecond = Int(allTime)*60
+            // 残り時間を計算
+            timeLeft = bodyPoseViewModel.calculateTimeLeft(startTime: startTime, studyTime: studyTime, studyTimeCount: studyTimeCount)
             
-            // 設定した
-            if studyTimeCount < timeLeftSecond {
-                // 勉強時間を表示
-                showText = formatter.string(from: timeLeft) ?? ""
-            } else if studyTimeCount > timeLeftSecond {
-                // 勉強時間終了
-                showText = "finish"
-            }
+            // 勉強時間、画面に表示するテキストを更新
+            showText = bodyPoseViewModel.studyTimeText(allTime: allTime, studyTimeCount: studyTimeCount, timeLeft: timeLeft)
         }
         .onAppear {
-            formatter.unitsStyle = .positional
-            formatter.allowedUnits = [.hour, .minute, .second]
-            if let time = calender.dateComponents([.second], from: startTime, to: endTime).second {
-                allTime = Double(time)
-            }
+            // 開始時間と終了時間から勉強時間を算出
+            allTime = bodyPoseViewModel.calculateAllTime(startTime: startTime, endTime: endTime)
             studyTime = startTime
         }
     }

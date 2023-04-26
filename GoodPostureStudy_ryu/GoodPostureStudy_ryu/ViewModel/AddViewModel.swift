@@ -34,8 +34,4 @@ class AddViewModel: ObservableObject {
     func add(task: String, color: String, startTime: Date, endTime: Date) {
         TaskDataModel.shared.add(task: task, color: color, startTime: startTime, endTime: endTime)
     }
-    
-    func colorChangeToString(color: Color) -> String {
-        return ColorModel.colorModel.colorChangeToString(color: color)
-    }
 }

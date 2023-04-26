@@ -124,7 +124,7 @@ struct AddView: View {
                     if let alert = addViewModel.checkTask(task: addViewModel.task, startTime: addViewModel.startTime, endTime: addViewModel.endTime) {
                         showingAlert = alert
                     } else {
-                        addViewModel.color = addViewModel.colorChangeToString(color: selectedIcon)
+                        addViewModel.color = selectedIcon.toCustomColorName().rawValue
                         addViewModel.add(task: addViewModel.task, color: addViewModel.color, startTime: addViewModel.startTime, endTime: addViewModel.endTime)
                         addViewModel.task = ""
                         print(tasks)

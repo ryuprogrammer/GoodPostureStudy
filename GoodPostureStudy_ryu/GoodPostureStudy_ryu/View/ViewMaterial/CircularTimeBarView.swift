@@ -49,10 +49,8 @@ struct CircularTimeBarView: View {
             }
             
             ForEach(tasks) { data in
-                let color = circularTimeBarViewModel.colorChangeToColor(colorName: data.color!)
+                let color = Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue)
                 // 進捗を示す円
-                // 0:1 = 0:12
-                // 0:1 = 0:60
                 Circle()
                     .trim(from: CGFloat(calendar.component(.hour, from: data.startTime!))/24 + CGFloat(calendar.component(.minute, from: data.startTime!))/60,
                           to: min(isProgress ?
@@ -101,7 +99,6 @@ struct CircularTimeBarView: View {
         .onAppear {
             withAnimation(.easeInOut(duration: 1)) {
                 isProgress = true
-//                percentage += Int(progress * 100)
             }
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
                 self.nowDate = Date()

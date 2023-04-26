@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct StartUpView: View {
     @Environment(\.managedObjectContext) private var viewContext
     // 西暦（gregorian）カレンダーを生成
     let calendar = Calendar(identifier: .gregorian)
@@ -44,8 +44,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct StartUpView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        StartUpView()
     }
 }

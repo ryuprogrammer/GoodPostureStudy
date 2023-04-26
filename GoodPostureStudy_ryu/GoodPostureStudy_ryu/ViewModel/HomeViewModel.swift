@@ -17,10 +17,6 @@ class HomeViewModel: ObservableObject {
         TaskDataModel.shared.delete(offsets: offsets)
     }
     
-    func colorChangeToColor(colorName: String) -> Color {
-        return ColorModel.colorModel.colorChangeToColor(colorName: colorName)
-    }
-    
     func dateString(date: Date) -> String {
         // カレンダー、ロケール、タイムゾーンの設定（未指定時は端末の設定が採用される）
         dateFormatter.calendar = Calendar(identifier: .gregorian)

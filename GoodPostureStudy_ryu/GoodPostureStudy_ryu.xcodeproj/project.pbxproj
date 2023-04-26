@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */; };
-		5AFCD03F29F4136E00BA7A86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03E29F4136E00BA7A86 /* ContentView.swift */; };
+		5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */; };
 		5AFCD04129F4136F00BA7A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD04029F4136F00BA7A86 /* Assets.xcassets */; };
 		5AFCD04429F4136F00BA7A86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD04329F4136F00BA7A86 /* Preview Assets.xcassets */; };
 		5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD04529F4136F00BA7A86 /* Persistence.swift */; };
@@ -21,7 +21,6 @@
 		5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */; };
 		5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06029F4406000BA7A86 /* ReportView.swift */; };
 		5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */; };
-		5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */; };
 		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
 		5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */; };
 		5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */; };
@@ -31,12 +30,13 @@
 		5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07429F77B9200BA7A86 /* CameraModel.swift */; };
 		5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */; };
 		5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07929F842E200BA7A86 /* PostureModel.swift */; };
+		5AFCD07D29F909C000BA7A86 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07C29F909C000BA7A86 /* Color+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5AFCD03929F4136E00BA7A86 /* GoodPostureStudy_ryu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodPostureStudy_ryu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPostureStudy_ryuApp.swift; sourceTree = "<group>"; };
-		5AFCD03E29F4136E00BA7A86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
 		5AFCD04029F4136F00BA7A86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AFCD04329F4136F00BA7A86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5AFCD04529F4136F00BA7A86 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,7 +49,6 @@
 		5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06029F4406000BA7A86 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarView.swift; sourceTree = "<group>"; };
-		5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseView.swift; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		5AFCD07429F77B9200BA7A86 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseViewModel.swift; sourceTree = "<group>"; };
 		5AFCD07929F842E200BA7A86 /* PostureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostureModel.swift; sourceTree = "<group>"; };
+		5AFCD07C29F909C000BA7A86 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +95,7 @@
 				5AFCD05529F41F9400BA7A86 /* View */,
 				5AFCD05429F41F7F00BA7A86 /* ViewModel */,
 				5AFCD05329F41F6300BA7A86 /* Model */,
+				5AFCD07B29F909A900BA7A86 /* Extentions */,
 				5AFCD04029F4136F00BA7A86 /* Assets.xcassets */,
 				5AFCD04529F4136F00BA7A86 /* Persistence.swift */,
 				5AFCD04729F4136F00BA7A86 /* GoodPostureStudy_ryu.xcdatamodeld */,
@@ -117,7 +118,6 @@
 				5AFCD05629F41FE800BA7A86 /* TaskDataModel.swift */,
 				5AFCD07929F842E200BA7A86 /* PostureModel.swift */,
 				5AFCD07429F77B9200BA7A86 /* CameraModel.swift */,
-				5AFCD06429F4DE4300BA7A86 /* ColorModel.swift */,
 				5AFCD04F29F41E5700BA7A86 /* Task+CoreDataClass.swift */,
 				5AFCD05029F41E5700BA7A86 /* Task+CoreDataProperties.swift */,
 			);
@@ -138,7 +138,7 @@
 		5AFCD05529F41F9400BA7A86 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5AFCD03E29F4136E00BA7A86 /* ContentView.swift */,
+				5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */,
 				5AFCD05A29F4324B00BA7A86 /* HomeView.swift */,
 				5AFCD05C29F4389100BA7A86 /* AddView.swift */,
 				5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */,
@@ -157,6 +157,14 @@
 				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
 			);
 			path = ViewMaterial;
+			sourceTree = "<group>";
+		};
+		5AFCD07B29F909A900BA7A86 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				5AFCD07C29F909C000BA7A86 /* Color+.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,8 +246,7 @@
 				5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */,
 				5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */,
 				5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */,
-				5AFCD06529F4DE4300BA7A86 /* ColorModel.swift in Sources */,
-				5AFCD03F29F4136E00BA7A86 /* ContentView.swift in Sources */,
+				5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,
 				5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */,
 				5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */,
@@ -250,6 +257,7 @@
 				5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */,
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,
 				5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */,
+				5AFCD07D29F909C000BA7A86 /* Color+.swift in Sources */,
 				5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

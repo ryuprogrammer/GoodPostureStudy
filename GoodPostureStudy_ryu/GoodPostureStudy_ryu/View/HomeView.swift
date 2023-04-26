@@ -40,9 +40,9 @@ struct HomeView: View {
                                         .padding(8)
                                         .foregroundColor(.white)
                                         .frame(width: 50, height: 50)
-                                        .background(homeViewModel.colorChangeToColor(colorName: data.color!).opacity(0.5))
+                                        .background(Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue).opacity(0.5))
                                         .cornerRadius(8)
-                                        .shadow(color: homeViewModel.colorChangeToColor(colorName: data.color!), radius: 5, x: 3, y: 3)
+                                        .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue), radius: 5, x: 3, y: 3)
                                         .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
                                     
                                     VStack {

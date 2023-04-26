@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CircularTimeBarView: View {
-    // CircularTimeBarViewModelのインスタンス生成
-    let circularTimeBarViewModel = CircularTimeBarViewModel()
     // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
     @Environment(\.managedObjectContext) private var context
     // データの取得処理

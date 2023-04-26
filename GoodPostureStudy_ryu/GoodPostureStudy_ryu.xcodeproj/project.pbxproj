@@ -22,7 +22,6 @@
 		5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06029F4406000BA7A86 /* ReportView.swift */; };
 		5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */; };
 		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
-		5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */; };
 		5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */; };
 		5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */; };
 		5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07029F77AFB00BA7A86 /* CameraView.swift */; };
@@ -50,7 +49,6 @@
 		5AFCD06029F4406000BA7A86 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarView.swift; sourceTree = "<group>"; };
 		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseView.swift; sourceTree = "<group>"; };
 		5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		5AFCD07029F77AFB00BA7A86 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */,
 				5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */,
 				5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */,
-				5AFCD06829F546FF00BA7A86 /* CircularTimeBarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 				5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,
 				5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */,
-				5AFCD06929F546FF00BA7A86 /* CircularTimeBarViewModel.swift in Sources */,
 				5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */,
 				5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */,
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,

@@ -29,7 +29,8 @@ class BodyPoseViewModel: ObservableObject {
         formatter.unitsStyle = .positional
         formatter.allowedUnits = [.hour, .minute, .second]
     }
-    
+
+    // MARK: - メソッド
     // 開始時間と終了時間から勉強時間（allTime）を算出
     func calculateAllTime(startTime: Date, endTime: Date) -> Double {
         var allTime: Double = 0.0

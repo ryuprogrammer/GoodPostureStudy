@@ -124,7 +124,7 @@ struct HomeView: View {
             .navigationTitle("ホーム")
             .navigationBarTitleDisplayMode(.inline)
             .fullScreenCover(item: $selectedTask) { _ in
-                BodyPoseView()
+                BodyPoseView(selectedTask: $selectedTask)
             }
         }
     }

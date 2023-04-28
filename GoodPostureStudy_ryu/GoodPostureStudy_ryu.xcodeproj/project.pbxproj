@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A25DC9D29FB91A900E9D2AB /* AddReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DC9C29FB91A900E9D2AB /* AddReportView.swift */; };
+		5A25DC9F29FB943000E9D2AB /* AddReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DC9E29FB943000E9D2AB /* AddReportViewModel.swift */; };
 		5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */; };
 		5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */; };
 		5AFCD04129F4136F00BA7A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD04029F4136F00BA7A86 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A25DC9C29FB91A900E9D2AB /* AddReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportView.swift; sourceTree = "<group>"; };
+		5A25DC9E29FB943000E9D2AB /* AddReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportViewModel.swift; sourceTree = "<group>"; };
 		5AFCD03929F4136E00BA7A86 /* GoodPostureStudy_ryu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodPostureStudy_ryu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPostureStudy_ryuApp.swift; sourceTree = "<group>"; };
 		5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */,
 				5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */,
 				5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */,
+				5A25DC9E29FB943000E9D2AB /* AddReportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				5AFCD05A29F4324B00BA7A86 /* HomeView.swift */,
 				5AFCD05C29F4389100BA7A86 /* AddView.swift */,
 				5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */,
+				5A25DC9C29FB91A900E9D2AB /* AddReportView.swift */,
 				5AFCD06029F4406000BA7A86 /* ReportView.swift */,
 				5AFCD07829F77E2E00BA7A86 /* ViewMaterial */,
 			);
@@ -238,6 +244,7 @@
 				5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */,
 				5AFCD04929F4136F00BA7A86 /* GoodPostureStudy_ryu.xcdatamodeld in Sources */,
 				5AFCD05D29F4389100BA7A86 /* AddView.swift in Sources */,
+				5A25DC9D29FB91A900E9D2AB /* AddReportView.swift in Sources */,
 				5AFCD05129F41E5700BA7A86 /* Task+CoreDataClass.swift in Sources */,
 				5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */,
 				5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */,
@@ -250,6 +257,7 @@
 				5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */,
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,
 				5AFCD05729F41FE800BA7A86 /* TaskDataModel.swift in Sources */,
+				5A25DC9F29FB943000E9D2AB /* AddReportViewModel.swift in Sources */,
 				5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */,
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,
 				5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */,

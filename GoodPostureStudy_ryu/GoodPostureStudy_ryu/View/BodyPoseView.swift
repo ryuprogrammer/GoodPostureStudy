@@ -10,6 +10,8 @@ import AVFoundation
 import Vision
 
 struct BodyPoseView: View {
+    // 勉強するタスク内容
+    @Binding var selectedTask: Task?
     // CameraModelのインスタンス生成
     @ObservedObject var camera = CameraModel()
     // BodyPoseViewModelのインスタンス生成
@@ -43,6 +45,8 @@ struct BodyPoseView: View {
     // ユーザーのデバイスの画面の大きさ
     let UserScreenWidth: Double = UIScreen.main.bounds.size.width
     let UserScreenHeight: Double = UIScreen.main.bounds.size.height
+    // AddReportViewの表示
+    @State var isShowAddReportView: Bool = false
     
     var body: some View {
         ZStack {
@@ -105,8 +109,22 @@ struct BodyPoseView: View {
                 .frame(width: 300)
                 .padding(50)
                 
-                Spacer()
-                    .frame(height: 300)
+                Button {
+                    isShowAddReportView = true
+                } label: {
+                    Text("完了")
+                        .font(.title)
+                        .foregroundColor(Color.white)
+                        .frame(width: 330, height: 55)
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
+                        )
+                        .cornerRadius(10)
+                }
+            }
+            .sheet(isPresented: $isShowAddReportView) {
+                // AddReportViewを表示
+                AddReportView(addTask: selectedTask!)
             }
         }
         .onReceive(timer) { _ in
@@ -131,7 +149,10 @@ struct BodyPoseView: View {
             timeCircleRatio = CGFloat(bodyPoseViewModel.timeLeft/allTime)
         }
         .onAppear {
-            // 開始時間と終了時間から勉強時間を算出
+            // 開始時間と終了時間を初期化
+            startTime = selectedTask?.startTime ?? Date()
+            endTime = selectedTask?.endTime ?? Date()
+            // 開始時間と終了時間から全勉強時間を算出
             allTime = bodyPoseViewModel.calculateAllTime(startTime: startTime, endTime: endTime)
             // 現在の時刻を開始時間で初期化
             nowTime = startTime

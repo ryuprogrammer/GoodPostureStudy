@@ -65,7 +65,7 @@ struct AddReportView: View {
                     // 完了したタスクを保存
                     addReportViewModel.editSave()
                     // 画面を閉じる
-                    dismiss
+                    dismiss()
                 } label: {
                     Text("タスク完了")
                         .font(.title)

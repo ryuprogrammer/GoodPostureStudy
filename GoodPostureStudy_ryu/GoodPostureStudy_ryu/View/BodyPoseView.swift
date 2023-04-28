@@ -47,6 +47,8 @@ struct BodyPoseView: View {
     let UserScreenHeight: Double = UIScreen.main.bounds.size.height
     // AddReportViewの表示
     @State var isShowAddReportView: Bool = false
+    // 画面を閉じる
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
@@ -122,7 +124,10 @@ struct BodyPoseView: View {
                         .cornerRadius(10)
                 }
             }
-            .sheet(isPresented: $isShowAddReportView) {
+            .sheet(isPresented: $isShowAddReportView, onDismiss: {
+                // HomeViewに戻る
+                dismiss()
+            }) {
                 // AddReportViewを表示
                 AddReportView(addTask: selectedTask!)
             }

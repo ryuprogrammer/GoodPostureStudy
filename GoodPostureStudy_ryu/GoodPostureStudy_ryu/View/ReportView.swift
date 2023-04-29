@@ -56,6 +56,9 @@ struct ReportView: View {
                                 }
                             }
                         }
+                        .onDelete { IndexSet in
+                            reportViewModel.delete(offsets: IndexSet)
+                        }
                     } header: {
                         Text("\(tasks.count)個のタスクを完了しました！")
                             .font(.title2)

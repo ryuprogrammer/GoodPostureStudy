@@ -16,72 +16,93 @@ struct HomeView: View {
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
     var tasks: FetchedResults<Task>
     @State var selectedTask: Task?
-
+    // 文字アニメーション用timer
+    @State private var textAnimation = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    // タスクがない場合に表示するアニメーションテキスト
+    private let startText = Array("一日の始まりです。まずはタスクを追加しましょう。")
+    // 表示するアニメーションテキストの配列Ver
+    @State var showTextArray = []
+    // 表示するアニメーションテキストのStringVer
+    @State var showStartText = ""
+    // テキストを一つずつ表示
+    @State var textCount = 0
+    
     var body: some View {
         NavigationView {
             VStack {
-                Divider()
-                
-                // 時間を表示
-                CircularTimeBarView()
-                    .frame(height: 350)
-                    .fixedSize()
-                
-                List {
-                    Section {
-                        // 今日やること
-                        ForEach(tasks) { data in
-                            if data.isDone == false {
-                                HStack {
-                                    Image(systemName: "highlighter")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .padding(8)
-                                        .foregroundColor(.white)
-                                        .frame(width: 50, height: 50)
-                                        .background(Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue).opacity(0.5))
-                                        .cornerRadius(8)
-                                        .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue), radius: 5, x: 3, y: 3)
-                                        .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
-                                    
-                                    VStack {
-                                        Text(data.task!)
-                                            .font(.system(size: 20))
-                                            .bold()
-                                        
-                                        Text("\(homeViewModel.dateString(date: data.startTime!))〜\(homeViewModel.dateString(date: data.endTime!))")
-                                            .font(.system(size: 15))
-                                    }
-                                    .frame(width: 200)
-                                    
-                                    Button {
-                                        selectedTask = data
-                                    } label: {
-                                        Text("スタート")
-                                            .font(.title3)
-                                            .frame(width: 120, height: 40)
+                if tasks.isEmpty {
+                    Text(showStartText)
+                } else {
+                    Divider()
+                    
+                    // 時間を表示
+                    CircularTimeBarView()
+                        .frame(height: 350)
+                        .fixedSize()
+                    
+                    List {
+                        Section {
+                            // 今日やること
+                            ForEach(tasks) { data in
+                                if data.isDone == false {
+                                    HStack {
+                                        Image(systemName: "highlighter")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .padding(8)
                                             .foregroundColor(.white)
-                                            .background(Color.blue)
-                                            .cornerRadius(13)
+                                            .frame(width: 50, height: 50)
+                                            .background(Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue).opacity(0.5))
+                                            .cornerRadius(8)
+                                            .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue), radius: 5, x: 3, y: 3)
+                                            .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
+                                        
+                                        VStack {
+                                            Text(data.task!)
+                                                .font(.system(size: 20))
+                                                .bold()
+                                            
+                                            Text("\(homeViewModel.dateString(date: data.startTime!))〜\(homeViewModel.dateString(date: data.endTime!))")
+                                                .font(.system(size: 15))
+                                        }
+                                        .frame(width: 200)
+                                        
+                                        Button {
+                                            selectedTask = data
+                                        } label: {
+                                            Text("スタート")
+                                                .font(.title3)
+                                                .frame(width: 120, height: 40)
+                                                .foregroundColor(.white)
+                                                .background(Color.blue)
+                                                .cornerRadius(13)
+                                        }
                                     }
                                 }
                             }
+                            .onDelete { IndexSet in
+                                homeViewModel.delete(offsets: IndexSet)
+                            }
+                        } header: {
+                            Text("今日は\(tasks.count)個のタスクがあります")
+                                .font(.title2)
+                                .padding(5)
                         }
-                        .onDelete { IndexSet in
-                            homeViewModel.delete(offsets: IndexSet)
-                        }
-                    } header: {
-                        Text("今日は\(tasks.count)個のタスクがあります")
-                            .font(.title2)
-                            .padding(5)
                     }
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
             }
             .navigationTitle("ホーム")
             .navigationBarTitleDisplayMode(.inline)
             .fullScreenCover(item: $selectedTask) { _ in
                 BodyPoseView(selectedTask: $selectedTask)
+            }
+        }
+        .onReceive(textAnimation) { _ in
+            if textCount < startText.count {
+                textCount += 1
+                showTextArray.append(startText[textCount-1])
+                showStartText = "\(showStartText)\(showTextArray[textCount-1])"
             }
         }
     }

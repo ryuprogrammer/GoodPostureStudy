@@ -10,6 +10,11 @@ import Foundation
 class ReportViewModel {
     let dateFormatter = DateFormatter()
     
+    // タスク削除メソッド
+    func delete(offsets: IndexSet) {
+        TaskDataModel.shared.delete(offsets: offsets)
+    }
+    
     func dateString(date: Date) -> String {
         // カレンダー、ロケール、タイムゾーンの設定（未指定時は端末の設定が採用される）
         dateFormatter.calendar = Calendar(identifier: .gregorian)

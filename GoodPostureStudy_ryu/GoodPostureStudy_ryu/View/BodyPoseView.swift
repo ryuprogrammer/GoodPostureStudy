@@ -13,9 +13,11 @@ struct BodyPoseView: View {
     // 勉強するタスク内容
     @Binding var selectedTask: Task?
     // CameraModelのインスタンス生成
-    @ObservedObject var camera = CameraModel()
+    @StateObject var camera = CameraModel()
     // BodyPoseViewModelのインスタンス生成
-    @ObservedObject var bodyPoseViewModel = BodyPoseViewModel()
+    @StateObject var bodyPoseViewModel = BodyPoseViewModel()
+    // NaviViewModelのインスタンス生成
+    @StateObject var naviViewModel = NaviViewModel()
     // 背骨の角度
     @State var bodyAngle: CGFloat = 0
     // 足を組んでいるか
@@ -49,12 +51,16 @@ struct BodyPoseView: View {
     @State var isShowAddReportView: Bool = false
     // 画面を閉じる
     @Environment(\.dismiss) private var dismiss
+    // ナビが終了して勉強をスタート
+    @State var isStartStudy: Bool = false
+    // ナビ
     
     var body: some View {
         ZStack {
+            // カメラの映像を表示
             CameraView(camera: camera)
                 .ignoresSafeArea(.all)
-            
+            // 骨格を表示
             BodyLineView(bodyPoints: camera.bodyPoints)
             
             // 画面の大きさに合わせて画面の縁に色をつける
@@ -63,26 +69,8 @@ struct BodyPoseView: View {
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UserScreenWidth, height: UserScreenHeight)
             
-            // タイマーボタン
-            VStack {
-                VStack {
-                    Text(bodyPoseViewModel.alertText)
-                }
-                .frame(maxWidth: 200, maxHeight: 100)
-                .background(.ultraThinMaterial)
-                .cornerRadius(15)
-                .overlay (
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke()
-                        .foregroundStyle(
-                            .linearGradient(colors: [.white.opacity(0.5), .clear],
-                                            startPoint: .top,
-                                            endPoint: .bottom)
-                        )
-                )
-                .shadow(color: .black.opacity(0.3), radius: 20, y: 20)
-                .padding(50)
-                
+            // 勉強が開始したらタイマーと完了ボタンを表示
+            if isStartStudy {
                 // タイムバー表示
                 ZStack {
                     // 背景の円
@@ -108,52 +96,64 @@ struct BodyPoseView: View {
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 20)
                 }
-                .frame(width: 300)
-                .padding(50)
+                .frame(width: UserScreenWidth*0.8)
                 
-                Button {
-                    isShowAddReportView = true
-                } label: {
-                    Text("完了")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                        .frame(width: 330, height: 55)
-                        .background(
-                            LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
-                        )
-                        .cornerRadius(10)
+                VStack {
+                    Spacer()
+                        .frame(height: UserScreenHeight*0.7)
+                    // 完了ボタン
+                    Button {
+                        isShowAddReportView = true
+                    } label: {
+                        Text("完了")
+                            .font(.title)
+                            .foregroundColor(Color.white)
+                            .frame(width: 200, height: 55)
+                            .background(
+                                LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
+                            )
+                            .cornerRadius(15)
+                    }
                 }
             }
-            .sheet(isPresented: $isShowAddReportView, onDismiss: {
-                // HomeViewに戻る
-                dismiss()
-            }) {
-                // AddReportViewを表示
-                AddReportView(addTask: selectedTask!)
-            }
+            // メッセージカード
+            NaviView(alertText: $bodyPoseViewModel.alertText, isStart: $isStartStudy)
+        }
+        .sheet(isPresented: $isShowAddReportView, onDismiss: {
+            // HomeViewに戻る
+            dismiss()
+        }) {
+            // AddReportViewを表示
+            AddReportView(addTask: selectedTask!)
         }
         .onReceive(timer) { _ in
+            print(naviViewModel.isStartStudy)
+            // Bodypointsが全て認識されているかチェック
+            bodyPoseViewModel.detectAllBodyPoints(bodyPoints: camera.bodyPoints)
             // 正しい姿勢で勉強できている場合のみタイマーを進める
             bodyPoseViewModel.stopTimer(bodyPoints: camera.bodyPoints)
             // 画面の縁の色をタイマーのオンオフによって変化
             backgroundColor = bodyPoseViewModel.isTimer ? .cyan : .red
         }
         .onReceive(studyTimer) { _ in
-            if bodyPoseViewModel.isTimer {
-                withAnimation {
-                    studyTimeCount += 1
+            if isStartStudy {
+                if bodyPoseViewModel.isTimer {
+                    withAnimation {
+                        studyTimeCount += 1
+                    }
                 }
+                // 残り時間を計算
+                bodyPoseViewModel.calculateTimeLeft(startTime: startTime, studyTime: nowTime, studyTimeCount: studyTimeCount)
+                // 勉強時間、画面に表示するテキストを更新
+                bodyPoseViewModel.studyTimeText(studyTimeCount: studyTimeCount, allTime: allTime)
+                
+                // タイムバーの進捗割合を更新
+                timeCircleRatio = CGFloat(bodyPoseViewModel.timeLeft/allTime)
             }
-            // 残り時間を計算
-            bodyPoseViewModel.calculateTimeLeft(startTime: startTime, studyTime: nowTime, studyTimeCount: studyTimeCount)
-            
-            // 勉強時間、画面に表示するテキストを更新
-            bodyPoseViewModel.studyTimeText(studyTimeCount: studyTimeCount, allTime: allTime)
-            
-            // タイムバーの進捗割合を更新
-            timeCircleRatio = CGFloat(bodyPoseViewModel.timeLeft/allTime)
         }
         .onAppear {
+            // カメラを起動
+            camera.start()
             // 開始時間と終了時間を初期化
             startTime = selectedTask?.startTime ?? Date()
             endTime = selectedTask?.endTime ?? Date()

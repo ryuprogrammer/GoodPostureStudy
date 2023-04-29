@@ -28,9 +28,18 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
             let view = UIView(frame: UIScreen.main.bounds)
             addPreviewLayer(to: view)
             session.commitConfiguration()
-            session.startRunning()
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    // キャプチャを開始
+    func start() {
+        if session.isRunning == false {
+            // 非同期処理をバックグラウンドスレッドで実行
+            DispatchQueue.global().async {
+                self.session.startRunning()
+            }
         }
     }
     
@@ -75,8 +84,6 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
             let rightHip = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.rightHip)
             let leftKnee = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.leftKnee)
             let rightKnee = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.rightKnee)
-            let leftAnkle = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.leftAnkle)
-            let rightAnkle = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.rightAnkle)
             // ここを埋める
             bodyPoints = BodyPoints(leftEar: Point(point: pointChange(point: leftEar.location), confidance: leftEar.confidence),
                            leftEye: Point(point: pointChange(point: leftEye.location), confidance: leftEye.confidence),
@@ -94,9 +101,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
                            leftHip: Point(point: pointChange(point: leftHip.location), confidance: leftHip.confidence),
                            rightHip: Point(point: pointChange(point: rightHip.location), confidance: rightHip.confidence),
                            leftKnee: Point(point: pointChange(point: leftKnee.location), confidance: leftKnee.confidence),
-                           rightKnee: Point(point: pointChange(point: rightKnee.location), confidance: rightKnee.confidence),
-                           leftAnkle: Point(point: pointChange(point: leftAnkle.location), confidance: leftAnkle.confidence),
-                           rightAnkle: Point(point: pointChange(point: rightAnkle.location), confidance: rightAnkle.confidence))
+                           rightKnee: Point(point: pointChange(point: rightKnee.location), confidance: rightKnee.confidence))
         } catch {
             print("Error detecting body pose: \(error.localizedDescription)")
         }
@@ -109,10 +114,6 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
             
             let x = normalizedPoint.x * width * 1.5
             let y = normalizedPoint.y * height
-            
-            print("point:\(point)")
-            print("normalizedPoint:\(normalizedPoint)")
-            print("pointChange:\(CGPoint(x: normalizedPoint.x, y: normalizedPoint.y))")
             
             return CGPoint(x: x, y: y)
         }
@@ -132,7 +133,7 @@ struct BodyPoints {
             leftEar, leftEye, rightEar, rightEye, neck, nose,
             leftShoulder, rightShoulder, leftElbow, rightElbow, rightWrist, leftWrist,
             root,
-            leftHip, rightHip, leftKnee, rightKnee, leftAnkle, rightAnkle
+            leftHip, rightHip, leftKnee, rightKnee
         ]
     }
     // 頭
@@ -156,6 +157,4 @@ struct BodyPoints {
     var rightHip: Point
     var leftKnee: Point
     var rightKnee: Point
-    var leftAnkle: Point
-    var rightAnkle: Point
 }

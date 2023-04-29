@@ -34,11 +34,6 @@ struct BodyLineView: View {
                         path.move(to: bodyPoints.rightHip.point)
                         path.addLine(to: bodyPoints.rightKnee.point)
                     }
-                    // 右膝から右足首
-                    if bodyPoints.rightKnee.confidance > 0 && bodyPoints.rightAnkle.confidance > 0 {
-                        path.move(to: bodyPoints.rightKnee.point)
-                        path.addLine(to: bodyPoints.rightAnkle.point)
-                    }
                     // MARK: - 左半身
                     // 左手首から左肘
                     if bodyPoints.leftWrist.confidance > 0 && bodyPoints.leftElbow.confidance > 0 {
@@ -59,11 +54,6 @@ struct BodyLineView: View {
                     if bodyPoints.leftHip.confidance > 0 && bodyPoints.leftKnee.confidance > 0 {
                         path.move(to: bodyPoints.leftHip.point)
                         path.addLine(to: bodyPoints.leftKnee.point)
-                    }
-                    // 左膝から左足首
-                    if bodyPoints.leftKnee.confidance > 0 && bodyPoints.leftAnkle.confidance > 0 {
-                        path.move(to: bodyPoints.leftKnee.point)
-                        path.addLine(to: bodyPoints.leftAnkle.point)
                     }
                     // MARK: - その他
                     // 右肩から首

@@ -17,6 +17,8 @@ class BodyPoseViewModel: ObservableObject {
     @Published var showStudyTime: String = ""
     // タイムバーの進捗割合
     @Published var timeCircleRatio: CGFloat = 0.0
+    // BodyPointsが全て検知できているか
+    var isDetectAllBodyPoints: Bool = false
     // 残り時間
     var timeLeft: Double = 0.0
     // PostureModelのインスタンス生成
@@ -66,6 +68,22 @@ class BodyPoseViewModel: ObservableObject {
         }
     }
     
+    // BodyPointsが全て認識されているかチェック
+    func detectAllBodyPoints(bodyPoints: BodyPoints?) {
+        isDetectAllBodyPoints = true
+        // bodyPointsをアンラップ
+        if let points = bodyPoints {
+            // pointの信頼度が全て０でないことを確認→全てのpointが認識されている
+            for point in points.points {
+                if point.confidance > 0 {
+                    isDetectAllBodyPoints = true
+                } else {
+                    isDetectAllBodyPoints = false
+                }
+            }
+        }
+    }
+    
     // 体のポーズによってタイマーを止める
     func stopTimer(bodyPoints: BodyPoints?) {
         // 足組み
@@ -76,20 +94,26 @@ class BodyPoseViewModel: ObservableObject {
         if let points = bodyPoints {
             isCrossLegs = postureModel.crossLegs(bodyPoints: points)
             isStretch = postureModel.stretch(bodyPoints: points)
-        }
-        
-        if isCrossLegs && isStretch {
-            isTimer = false
-            alertText = "伸びをして足を組んでいるためタイマーを止めています。"
-        } else if isCrossLegs {
-            isTimer = false
-            alertText = "足を組んでいるためタイマーを止めています。"
-        } else if isStretch {
-            isTimer = false
-            alertText = "伸びをしているのでタイマーを止めています。"
-        } else {
-            isTimer = true
-            alertText = "正しい姿勢です！"
+
+            if isDetectAllBodyPoints {
+                if isCrossLegs && isStretch {
+                    isTimer = false
+                    alertText = "伸びをして足を組んでいるためタイマーを止めています。"
+                } else if isCrossLegs {
+                    isTimer = false
+                    alertText = "足を組んでいるためタイマーを止めています。"
+                } else if isStretch {
+                    isTimer = false
+                    alertText = "伸びをしているのでタイマーを止めています。"
+                } else {
+                    isTimer = true
+                    alertText = "正しい姿勢です！"
+                }
+            } else {
+                // 体が認識されていない場合
+                isTimer = false
+                alertText = "体全体を映してください。"
+            }
         }
     }
 }

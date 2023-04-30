@@ -25,7 +25,7 @@ class AddViewModel: ObservableObject {
         if task == "" { // タスクが空欄
             showingAlert = AlertItem(alert: Alert(title: Text("やることの項目でエラー"), message: Text("やることを入力してください。")))
         } else if startTime > endTime { // 開始時間が終了時間よりも早い
-            showingAlert = AddViewModel.AlertItem(alert: Alert(title: Text("時間の項目でエラー"), message: Text("開始時間よりも終了時間が早いです。")))
+            showingAlert = AlertItem(alert: Alert(title: Text("時間の項目でエラー"), message: Text("開始時間よりも終了時間が早いです。")))
         }
         return showingAlert
     }

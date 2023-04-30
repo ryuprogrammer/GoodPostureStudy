@@ -54,7 +54,6 @@ struct BodyPoseView: View {
     // ナビが終了して勉強をスタート
     @State var isStartStudy: Bool = false
     // ナビ
-    
     var body: some View {
         ZStack {
             // カメラの映像を表示

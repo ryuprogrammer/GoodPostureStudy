@@ -12,6 +12,8 @@ struct AddView: View {
     @StateObject var addViewModel = AddViewModel()
     // 何も書かれていない時のアラーム
     @State private var isTaskEmpty: Bool = false
+    // 入力フォームのフォーカスの状態を管理
+    @FocusState var taskFocus: Bool
     // 開始時間よりも終了時間が早い場合のアラーム
     @State private var isEndtimeEarly: Bool = false
     // アラート
@@ -61,6 +63,8 @@ struct AddView: View {
                             .font(.system(size: 20))
                             .frame(width: 360, height: 20)
                             .frame(maxWidth: .infinity)
+                            // キーボードのフォーカス状態を監視
+                            .focused(self.$taskFocus)
                     } header: {
                         Text("やること")
                     }
@@ -123,13 +127,14 @@ struct AddView: View {
                 .listStyle(.plain)
                 
                 Button {
+                    // キーボードを閉じる
+                    taskFocus = false
                     if let alert = addViewModel.checkTask(task: addViewModel.task, startTime: addViewModel.startTime, endTime: addViewModel.endTime) {
                         showingAlert = alert
                     } else {
                         addViewModel.color = selectedIcon.toCustomColorName().rawValue
                         addViewModel.add(task: addViewModel.task, color: addViewModel.color, startTime: addViewModel.startTime, endTime: addViewModel.endTime)
                         addViewModel.task = ""
-                        print(tasks)
                     }
                 } label: {
                     Text("タスクを追加")

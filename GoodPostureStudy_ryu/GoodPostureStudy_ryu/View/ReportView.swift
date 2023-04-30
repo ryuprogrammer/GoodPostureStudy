@@ -15,7 +15,6 @@ struct ReportView: View {
     // データの取得処理
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
     var tasks: FetchedResults<Task>
-    @State var selectedTask: Task?
     var body: some View {
         NavigationView {
             VStack {
@@ -23,24 +22,27 @@ struct ReportView: View {
                     Section {
                         // 完了したタスク
                         ForEach(tasks) { data in
+                            // 完了したタスクのみ表示
                             if data.isDone == true {
                                 HStack {
-                                    Image(systemName: "figure.run")
+                                    // アイコンを表示
+                                    Image(systemName: "highlighter")
                                         .resizable()
                                         .scaledToFit()
                                         .padding(8)
                                         .foregroundColor(.white)
-                                        .frame(width: 50, height: 50)
-                                        .background(Color(data.color!).opacity(0.5))
+                                        .frame(width: 40, height: 40)
+                                        .background(Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue).opacity(0.5))
                                         .cornerRadius(8)
-                                        .shadow(color: Color(data.color!), radius: 5, x: 3, y: 3)
+                                        .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue), radius: 5, x: 3, y: 3)
                                         .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
                                     
                                     VStack {
+                                        // タスクを表示
                                         Text(data.task!)
                                             .font(.system(size: 20))
                                             .bold()
-                                        
+                                        // タスクの時間を表示
                                         Text("\(reportViewModel.dateString(date: data.startTime!))〜\(reportViewModel.dateString(date: data.endTime!))")
                                             .font(.system(size: 15))
                                     }
@@ -57,6 +59,7 @@ struct ReportView: View {
                             }
                         }
                         .onDelete { IndexSet in
+                            // タスクを削除
                             reportViewModel.delete(offsets: IndexSet)
                         }
                     } header: {

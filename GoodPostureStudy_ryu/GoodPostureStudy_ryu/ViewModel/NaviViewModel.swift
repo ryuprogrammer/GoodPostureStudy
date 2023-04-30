@@ -14,7 +14,7 @@ class NaviViewModel: ObservableObject {
     
     // インスタンスが生成された時に初期化される
     init() {
-        naviData = Navi(naviText: "まずは画面内に膝から頭まで映るようにスマホを置きましょう。\n\n認識されているときは画面の縁が緑に光ります。", naviImage: "camera")
+        naviData = Navi(naviText: "頭から膝まで映るようにスマホを置きましょう。\n\n認識されているときは画面の縁が緑に光ります。", naviImage: "camera")
     }
     // ページ
     enum page: Int {

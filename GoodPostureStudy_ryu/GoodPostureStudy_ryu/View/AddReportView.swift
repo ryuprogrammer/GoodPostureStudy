@@ -12,6 +12,8 @@ struct AddReportView: View {
     @StateObject var addReportViewModel = AddReportViewModel()
     // BodyPoseViewで進行しているタスク
     @State var addTask: Task
+    // アラート
+    @State private var showingAlert: AddReportViewModel.AlertItem?
     // 西暦（gregorian）カレンダーを生成
     let calendar = Calendar(identifier: .gregorian)
     // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
@@ -62,10 +64,16 @@ struct AddReportView: View {
                 }
                 
                 Button {
-                    // 完了したタスクを保存
-                    addReportViewModel.editSave()
-                    // 画面を閉じる
-                    dismiss()
+                    // 追加するタスクが有効かチェック
+                    if let alert = addReportViewModel.checkTask(task: addReportViewModel.content, startTime: addReportViewModel.startTime, endTime: addReportViewModel.endTime) {
+                        // アラート表示
+                        showingAlert = alert
+                    } else {
+                        // 完了したタスクを保存
+                        addReportViewModel.editSave()
+                        // 画面を閉じる
+                        dismiss()
+                    }
                 } label: {
                     Text("タスク完了")
                         .font(.title)
@@ -76,6 +84,9 @@ struct AddReportView: View {
                         .cornerRadius(15)
                 }
                 .padding(.bottom)
+                .alert(item: $showingAlert) { item in
+                    item.alert
+                }
             }
             .navigationTitle("完了したタスクを修正")
             .navigationBarTitleDisplayMode(.inline)

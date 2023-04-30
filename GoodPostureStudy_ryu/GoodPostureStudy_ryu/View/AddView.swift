@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddView: View {
+    // タブを管理する
+    @Binding var tabSelection: Int
     // AddViewModelのインスタンス
     @StateObject var addViewModel = AddViewModel()
     // 何も書かれていない時のアラーム
@@ -18,14 +20,12 @@ struct AddView: View {
     @State private var isEndtimeEarly: Bool = false
     // アラート
     @State private var showingAlert: AddViewModel.AlertItem?
+    // 入力完了後のホームへ移動するアラート
+    @State private var isShowHomeAlert: Bool = false
     // 開始時間の初期値は現在時刻に設定
     @State var startTime: Date = Date()
     // 終了時間の初期値は１時間進めておく
     @State var endTime: Date = Date() + (60 * 60)
-    // datepickerを５分刻みにする
-    init() {
-        UIDatePicker.appearance().minuteInterval = 5
-    }
     // 西暦（gregorian）カレンダーを生成
     let calendar = Calendar(identifier: .gregorian)
     // テキスト
@@ -135,6 +135,8 @@ struct AddView: View {
                         addViewModel.color = selectedIcon.toCustomColorName().rawValue
                         addViewModel.add(task: addViewModel.task, color: addViewModel.color, startTime: addViewModel.startTime, endTime: addViewModel.endTime)
                         addViewModel.task = ""
+                        // タスク完了のアラートを表示
+                        isShowHomeAlert = true
                     }
                 } label: {
                     Text("タスクを追加")
@@ -146,18 +148,32 @@ struct AddView: View {
                         .cornerRadius(15)
                 }
                 .padding(.bottom)
+                // 入力内容が不十分の場合のアラート
                 .alert(item: $showingAlert) { item in
                     item.alert
+                }
+                // 入力完了後のホームへ移動するアラート
+                .alert(isPresented: $isShowHomeAlert) {
+                    Alert(title: Text("タスクを追加しました！"),
+                          primaryButton: .default(Text("別のタスクを追加")),
+                        secondaryButton: .default(Text("ホームへ移動"),
+                                                                   action: {
+                        tabSelection = 1
+                    }))
                 }
             }
             .navigationTitle("タスク追加")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear {
+            // datePickerを５分刻みにする
+            UIDatePicker.appearance().minuteInterval = 5
+        }
     }
 }
 
-struct AddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView()
-    }
-}
+//struct AddView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddView()
+//    }
+//}

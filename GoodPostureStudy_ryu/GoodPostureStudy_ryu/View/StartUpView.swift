@@ -9,13 +9,15 @@ import SwiftUI
 import CoreData
 
 struct StartUpView: View {
+    // タブをコードで動的に切り替える
+    @State var tabSelection: Int = 0
     @Environment(\.managedObjectContext) private var viewContext
     // 西暦（gregorian）カレンダーを生成
     let calendar = Calendar(identifier: .gregorian)
     // 現在日時を取得
     @State var nowDate = Date()
     var body: some View {
-        TabView {
+        TabView(selection: $tabSelection) {
             HomeView()
                 .tabItem {
                     VStack {
@@ -23,14 +25,16 @@ struct StartUpView: View {
                         Text("ホーム")
                     }
                 }
+                .tag(0)
             
-            AddView()
+            AddView(tabSelection: $tabSelection)
                 .tabItem {
                     VStack {
                         Image(systemName: "highlighter")
                         Text("タスク追加")
                     }
                 }
+                .tag(1)
             
             ReportView()
                 .tabItem {
@@ -40,6 +44,7 @@ struct StartUpView: View {
                         Text("レポート")
                     }
                 }
+                .tag(2)
         }
     }
 }

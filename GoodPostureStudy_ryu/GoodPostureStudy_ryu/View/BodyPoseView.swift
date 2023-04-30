@@ -13,7 +13,7 @@ struct BodyPoseView: View {
     // 勉強するタスク内容
     @Binding var selectedTask: Task?
     // CameraModelのインスタンス生成
-    @StateObject var camera = CameraModel()
+    @StateObject var camera = CameraViewModel()
     // BodyPoseViewModelのインスタンス生成
     @StateObject var bodyPoseViewModel = BodyPoseViewModel()
     // NaviViewModelのインスタンス生成
@@ -126,7 +126,6 @@ struct BodyPoseView: View {
             AddReportView(addTask: selectedTask!)
         }
         .onReceive(timer) { _ in
-            print(naviViewModel.isStartStudy)
             // Bodypointsが全て認識されているかチェック
             bodyPoseViewModel.detectAllBodyPoints(bodyPoints: camera.bodyPoints)
             // 正しい姿勢で勉強できている場合のみタイマーを進める
@@ -145,7 +144,6 @@ struct BodyPoseView: View {
                 bodyPoseViewModel.calculateTimeLeft(startTime: startTime, studyTime: nowTime, studyTimeCount: studyTimeCount)
                 // 勉強時間、画面に表示するテキストを更新
                 bodyPoseViewModel.studyTimeText(studyTimeCount: studyTimeCount, allTime: allTime)
-                
                 // タイムバーの進捗割合を更新
                 timeCircleRatio = CGFloat(bodyPoseViewModel.timeLeft/allTime)
             }

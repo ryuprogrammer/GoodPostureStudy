@@ -32,7 +32,7 @@
 		5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */; };
 		5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07029F77AFB00BA7A86 /* CameraView.swift */; };
 		5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */; };
-		5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07429F77B9200BA7A86 /* CameraModel.swift */; };
+		5AFCD07529F77B9200BA7A86 /* BodyPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07429F77B9200BA7A86 /* BodyPoints.swift */; };
 		5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */; };
 		5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07929F842E200BA7A86 /* PostureModel.swift */; };
 		5AFCD07D29F909C000BA7A86 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07C29F909C000BA7A86 /* Color+.swift */; };
@@ -65,7 +65,7 @@
 		5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		5AFCD07029F77AFB00BA7A86 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLineView.swift; sourceTree = "<group>"; };
-		5AFCD07429F77B9200BA7A86 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		5AFCD07429F77B9200BA7A86 /* BodyPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoints.swift; sourceTree = "<group>"; };
 		5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseViewModel.swift; sourceTree = "<group>"; };
 		5AFCD07929F842E200BA7A86 /* PostureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostureModel.swift; sourceTree = "<group>"; };
 		5AFCD07C29F909C000BA7A86 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			children = (
 				5AFCD05629F41FE800BA7A86 /* TaskDataModel.swift */,
 				5AFCD07929F842E200BA7A86 /* PostureModel.swift */,
-				5AFCD07429F77B9200BA7A86 /* CameraModel.swift */,
+				5AFCD07429F77B9200BA7A86 /* BodyPoints.swift */,
 				5AFCD04F29F41E5700BA7A86 /* Task+CoreDataClass.swift */,
 				5AFCD05029F41E5700BA7A86 /* Task+CoreDataProperties.swift */,
 			);
@@ -278,7 +278,7 @@
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,
 				5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */,
 				5AFCD07D29F909C000BA7A86 /* Color+.swift in Sources */,
-				5AFCD07529F77B9200BA7A86 /* CameraModel.swift in Sources */,
+				5AFCD07529F77B9200BA7A86 /* BodyPoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

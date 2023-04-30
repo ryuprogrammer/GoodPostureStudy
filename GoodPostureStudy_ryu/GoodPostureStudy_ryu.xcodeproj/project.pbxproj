@@ -12,6 +12,7 @@
 		5A25DCA329FBA5DA00E9D2AB /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCA229FBA5DA00E9D2AB /* ReportViewModel.swift */; };
 		5A25DCA729FD51C800E9D2AB /* NaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCA629FD51C800E9D2AB /* NaviView.swift */; };
 		5A25DCA929FD556400E9D2AB /* NaviViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */; };
+		5A25DCAB29FE9AEC00E9D2AB /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */; };
 		5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */; };
 		5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */; };
 		5AFCD04129F4136F00BA7A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD04029F4136F00BA7A86 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		5A25DCA229FBA5DA00E9D2AB /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		5A25DCA629FD51C800E9D2AB /* NaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviView.swift; sourceTree = "<group>"; };
 		5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviViewModel.swift; sourceTree = "<group>"; };
+		5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		5AFCD03929F4136E00BA7A86 /* GoodPostureStudy_ryu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodPostureStudy_ryu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPostureStudy_ryuApp.swift; sourceTree = "<group>"; };
 		5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */,
 				5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */,
 				5A25DC9E29FB943000E9D2AB /* AddReportViewModel.swift */,
+				5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				5AFCD05B29F4324B00BA7A86 /* HomeView.swift in Sources */,
 				5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */,
 				5AFCD04929F4136F00BA7A86 /* GoodPostureStudy_ryu.xcdatamodeld in Sources */,
+				5A25DCAB29FE9AEC00E9D2AB /* CameraViewModel.swift in Sources */,
 				5AFCD05D29F4389100BA7A86 /* AddView.swift in Sources */,
 				5A25DC9D29FB91A900E9D2AB /* AddReportView.swift in Sources */,
 				5AFCD05129F41E5700BA7A86 /* Task+CoreDataClass.swift in Sources */,

@@ -19,8 +19,8 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
         super.init()
         do {
             session.sessionPreset = .photo
-            let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
-            let input = try AVCaptureDeviceInput(device: device!)
+            guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
+            let input = try AVCaptureDeviceInput(device: device)
             session.addInput(input)
             let output = AVCaptureVideoDataOutput()
             output.setSampleBufferDelegate(self, queue: .main)
@@ -33,6 +33,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
         }
     }
     
+    // ↓消す
     // キャプチャを開始
     func start() {
         if session.isRunning == false {

@@ -84,7 +84,7 @@ struct HomeView: View {
                                 homeViewModel.delete(offsets: IndexSet)
                             }
                         } header: {
-                            Text("今日は\(tasks.count)個のタスクがあります")
+                            Text("今日のタスク")
                                 .font(.title2)
                                 .padding(5)
                         }
@@ -108,8 +108,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

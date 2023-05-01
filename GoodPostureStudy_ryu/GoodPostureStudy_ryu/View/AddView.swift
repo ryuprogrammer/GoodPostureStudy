@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddView: View {
-    // タブを管理する
+    // Tabを切り替える
     @Binding var tabSelection: Int
     // AddViewModelのインスタンス
     @StateObject var addViewModel = AddViewModel()
@@ -158,7 +158,8 @@ struct AddView: View {
                           primaryButton: .default(Text("別のタスクを追加")),
                         secondaryButton: .default(Text("ホームへ移動"),
                                                                    action: {
-                        tabSelection = 1
+                        // ホームへ移動させる
+                        tabSelection = 0
                     }))
                 }
             }

@@ -36,7 +36,6 @@ struct ReportView: View {
                                         .cornerRadius(8)
                                         .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue), radius: 5, x: 3, y: 3)
                                         .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
-                                    
                                     VStack {
                                         // タスクを表示
                                         Text(data.task!)
@@ -63,7 +62,7 @@ struct ReportView: View {
                             reportViewModel.delete(offsets: IndexSet)
                         }
                     } header: {
-                        Text("\(tasks.count)個のタスクを完了しました！")
+                        Text("完了したタスク")
                             .font(.title2)
                             .padding(5)
                     }
@@ -76,8 +75,8 @@ struct ReportView: View {
     }
 }
 
-struct ReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReportView()
-    }
-}
+//struct ReportView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ReportView()
+//    }
+//}

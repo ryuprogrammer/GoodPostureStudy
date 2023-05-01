@@ -73,6 +73,8 @@ class BarMarkViewModel: ObservableObject {
                 case 2: twoDaysAgoStudyTime += studyTime
                 case 3: threeDaysAgoStudyTime += studyTime
                 case 4: fourDaysAgoStudyTime += studyTime
+                case 5: fiveDaysAgoStudyTime += studyTime
+                case 6: sixDaysAgoStudyTime += studyTime
                 default: break
                 }
             }

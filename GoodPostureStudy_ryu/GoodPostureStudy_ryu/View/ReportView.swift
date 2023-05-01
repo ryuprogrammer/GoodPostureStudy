@@ -20,6 +20,17 @@ struct ReportView: View {
             VStack {
                 List {
                     Section {
+                        // 過去5日間の勉強時間データ
+                        BarMarkView()
+                    } header: {
+                        Text("過去7日間の勉強データ")
+                            .font(.title2)
+                            .padding(5)
+                    }
+                    // リストの区切り線を消す
+                    .listRowSeparator(.hidden)
+                    
+                    Section {
                         // 完了したタスク
                         ForEach(tasks) { data in
                             // 完了したタスクのみ表示

@@ -14,6 +14,9 @@
 		5A25DCA929FD556400E9D2AB /* NaviViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */; };
 		5A25DCAB29FE9AEC00E9D2AB /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */; };
 		5A25DCB129FF6B1A00E9D2AB /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB029FF6B1A00E9D2AB /* TabViewModel.swift */; };
+		5A25DCB329FF772700E9D2AB /* BarMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB229FF772700E9D2AB /* BarMarkView.swift */; };
+		5A25DCB529FF7B1800E9D2AB /* BarMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */; };
+		5A25DCB729FF997500E9D2AB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB629FF997500E9D2AB /* Date+.swift */; };
 		5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */; };
 		5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */; };
 		5AFCD04129F4136F00BA7A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD04029F4136F00BA7A86 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviViewModel.swift; sourceTree = "<group>"; };
 		5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		5A25DCB029FF6B1A00E9D2AB /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		5A25DCB229FF772700E9D2AB /* BarMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkView.swift; sourceTree = "<group>"; };
+		5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkViewModel.swift; sourceTree = "<group>"; };
+		5A25DCB629FF997500E9D2AB /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		5AFCD03929F4136E00BA7A86 /* GoodPostureStudy_ryu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodPostureStudy_ryu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPostureStudy_ryuApp.swift; sourceTree = "<group>"; };
 		5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 				5AFCD05E29F4398F00BA7A86 /* AddViewModel.swift */,
 				5A25DC9E29FB943000E9D2AB /* AddReportViewModel.swift */,
 				5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */,
+				5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */,
 				5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */,
 				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
+				5A25DCB229FF772700E9D2AB /* BarMarkView.swift */,
 			);
 			path = ViewMaterial;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				5AFCD07C29F909C000BA7A86 /* Color+.swift */,
+				5A25DCB629FF997500E9D2AB /* Date+.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -260,6 +269,8 @@
 				5AFCD05B29F4324B00BA7A86 /* HomeView.swift in Sources */,
 				5AFCD07729F77D7900BA7A86 /* BodyPoseViewModel.swift in Sources */,
 				5AFCD04929F4136F00BA7A86 /* GoodPostureStudy_ryu.xcdatamodeld in Sources */,
+				5A25DCB729FF997500E9D2AB /* Date+.swift in Sources */,
+				5A25DCB329FF772700E9D2AB /* BarMarkView.swift in Sources */,
 				5A25DCAB29FE9AEC00E9D2AB /* CameraViewModel.swift in Sources */,
 				5AFCD05D29F4389100BA7A86 /* AddView.swift in Sources */,
 				5A25DC9D29FB91A900E9D2AB /* AddReportView.swift in Sources */,
@@ -277,6 +288,7 @@
 				5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */,
 				5A25DCA729FD51C800E9D2AB /* NaviView.swift in Sources */,
 				5AFCD05729F41FE800BA7A86 /* TaskDataModel.swift in Sources */,
+				5A25DCB529FF7B1800E9D2AB /* BarMarkViewModel.swift in Sources */,
 				5A25DC9F29FB943000E9D2AB /* AddReportViewModel.swift in Sources */,
 				5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */,
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,

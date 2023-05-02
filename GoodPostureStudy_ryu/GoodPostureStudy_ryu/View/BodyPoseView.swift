@@ -112,9 +112,7 @@ struct BodyPoseView: View {
                                 .font(.title)
                                 .foregroundColor(Color.white)
                                 .frame(width: 100, height: 55)
-                                .background(
-                                    LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
-                                )
+                                .background(Color.blue.opacity(0.5))
                                 .cornerRadius(15)
                         }
                         
@@ -126,9 +124,7 @@ struct BodyPoseView: View {
                                 .font(.title)
                                 .foregroundColor(Color.white)
                                 .frame(width: 250, height: 55)
-                                .background(
-                                    LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
-                                )
+                                .background(Color.blue.opacity(0.5))
                                 .cornerRadius(15)
                         }
                     }
@@ -142,11 +138,14 @@ struct BodyPoseView: View {
             Alert(title: Text("注意"),
                   message: Text("ホームへ戻ると\nタイマーが保存されません。"),
                   primaryButton: .cancel(Text("キャンセル")),
-                  secondaryButton: .destructive(Text("ホームへ戻る"), action: { dismiss() }))
+                  secondaryButton: .default(Text("ホームへ戻る"), action: { dismiss() }))
         }
         .sheet(isPresented: $isShowAddReportView, onDismiss: {
-            // HomeViewに戻る
-            dismiss()
+            // タスクが完了しているか判定
+            if selectedTask!.isDone {
+                // タスクが完了している時のみHomeViewに戻る
+                dismiss()
+            }
         }) {
             // AddReportViewを表示
             AddReportView(addTask: selectedTask!)

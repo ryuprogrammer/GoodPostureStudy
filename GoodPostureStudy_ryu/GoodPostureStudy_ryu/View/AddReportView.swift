@@ -63,29 +63,43 @@ struct AddReportView: View {
                     .listRowSeparator(.hidden)
                 }
                 
-                Button {
-                    // 追加するタスクが有効かチェック
-                    if let alert = addReportViewModel.checkTask(task: addReportViewModel.content, startTime: addReportViewModel.startTime, endTime: addReportViewModel.endTime) {
-                        // アラート表示
-                        showingAlert = alert
-                    } else {
-                        // 完了したタスクを保存
-                        addReportViewModel.editSave()
-                        // 画面を閉じる
+                HStack {
+                    Button {
+                        // BodyPoseViewに戻る
                         dismiss()
+                    } label: {
+                        Text("勉強に戻る")
+                            .foregroundColor(Color.white)
+                            .padding(15)
+                            .frame(width: 150, height: 55)
+                            .background(Color.blue)
+                            .cornerRadius(15)
                     }
-                } label: {
-                    Text("タスク完了")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                        .padding(15)
-                        .frame(width: 205, height: 55)
-                        .background(Color.blue)
-                        .cornerRadius(15)
-                }
-                .padding(.bottom)
-                .alert(item: $showingAlert) { item in
-                    item.alert
+                    .padding(.bottom)
+                    
+                    Button {
+                        // 追加するタスクが有効かチェック
+                        if let alert = addReportViewModel.checkTask(task: addReportViewModel.content, startTime: addReportViewModel.startTime, endTime: addReportViewModel.endTime) {
+                            // アラート表示
+                            showingAlert = alert
+                        } else {
+                            // 完了したタスクを保存
+                            addReportViewModel.editSave()
+                            // 画面を閉じる
+                            dismiss()
+                        }
+                    } label: {
+                        Text("タスク完了")
+                            .foregroundColor(Color.white)
+                            .padding(15)
+                            .frame(width: 150, height: 55)
+                            .background(Color.blue)
+                            .cornerRadius(15)
+                    }
+                    .padding(.bottom)
+                    .alert(item: $showingAlert) { item in
+                        item.alert
+                    }
                 }
             }
             .navigationTitle("完了したタスクを修正")

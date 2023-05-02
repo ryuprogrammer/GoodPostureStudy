@@ -162,9 +162,9 @@
 				5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */,
 				5AFCD05A29F4324B00BA7A86 /* HomeView.swift */,
 				5AFCD05C29F4389100BA7A86 /* AddView.swift */,
+				5AFCD06029F4406000BA7A86 /* ReportView.swift */,
 				5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */,
 				5A25DC9C29FB91A900E9D2AB /* AddReportView.swift */,
-				5AFCD06029F4406000BA7A86 /* ReportView.swift */,
 				5AFCD07829F77E2E00BA7A86 /* ViewMaterial */,
 			);
 			path = View;

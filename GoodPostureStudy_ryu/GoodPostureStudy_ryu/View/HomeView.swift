@@ -26,6 +26,9 @@ struct HomeView: View {
     @State var showStartText = ""
     // テキストを一つずつ表示
     @State var textCount = 0
+    // ユーザーのデバイスの画面の大きさ
+    let UserScreenWidth: Double = UIScreen.main.bounds.size.width
+    let UserScreenHeight: Double = UIScreen.main.bounds.size.height
     
     var body: some View {
         NavigationView {
@@ -33,14 +36,21 @@ struct HomeView: View {
                 if tasks.isEmpty {
                     Text(showStartText)
                 } else {
-                    Divider()
-                    
-                    // 時間を表示
-                    CircularTimeBarView()
-                        .frame(height: 350)
-                        .fixedSize()
-                    
                     List {
+                        Section {
+                            // 時間を表示
+                            CircularTimeBarView()
+                                .scaleEffect(CGSize(width: 0.8, height: 0.8))
+                                .frame(maxWidth: .infinity)
+                        } header: {
+                            Text("タイムテーブル")
+                                .font(.title2)
+                                .padding(5)
+                        }
+                        // リストの区切り線を消す
+                        .listRowSeparator(.hidden)
+
+                        
                         Section {
                             // 今日やること
                             ForEach(tasks) { data in
@@ -78,6 +88,9 @@ struct HomeView: View {
                                                 .cornerRadius(13)
                                         }
                                     }
+                                    // リストの区切り線を消す
+                                    .listRowSeparator(.hidden)
+                                    .padding(3)
                                 }
                             }
                             .onDelete { IndexSet in
@@ -93,7 +106,6 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("ホーム")
-            .navigationBarTitleDisplayMode(.inline)
             .fullScreenCover(item: $selectedTask) { _ in
                 BodyPoseView(selectedTask: $selectedTask)
             }

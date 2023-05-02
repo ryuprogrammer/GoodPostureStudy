@@ -66,6 +66,9 @@ struct ReportView: View {
                                         .background(Color.gray.opacity(0.5))
                                         .cornerRadius(13)
                                 }
+                                // リストの区切り線を消す
+                                .listRowSeparator(.hidden)
+                                .padding(3)
                             }
                         }
                         .onDelete { IndexSet in
@@ -81,7 +84,6 @@ struct ReportView: View {
                 .listStyle(PlainListStyle())
             }
             .navigationTitle("レポート")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

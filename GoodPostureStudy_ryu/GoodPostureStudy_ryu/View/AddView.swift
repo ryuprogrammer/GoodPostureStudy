@@ -47,26 +47,17 @@ struct AddView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Divider()
-                
                 List {
-                    if tasks.isEmpty == false {
-                        // 時間を表示
-                        CircularTimeBarView()
-                            .scaleEffect(CGSize(width: 0.7, height: 0.7))
-                            .frame(maxWidth: .infinity)
-                            .listRowSeparator(.hidden)
-                    }
-                    
                     Section {
                         TextField("やることを入力", text: $addViewModel.task)
                             .font(.system(size: 20))
                             .frame(width: 360, height: 20)
                             .frame(maxWidth: .infinity)
-                            // キーボードのフォーカス状態を監視
+                        // キーボードのフォーカス状態を監視
                             .focused(self.$taskFocus)
                     } header: {
                         Text("やること")
+                            .padding(3)
                     }
                     .listRowSeparator(.hidden)
                     
@@ -94,6 +85,7 @@ struct AddView: View {
                         .frame(maxWidth: .infinity)
                     } header: {
                         Text("アイコン")
+                            .padding(3)
                     }
                     .listRowSeparator(.hidden)
                     
@@ -120,6 +112,7 @@ struct AddView: View {
                         .frame(maxWidth: .infinity)
                     } header: {
                         Text("時間")
+                            .padding(3)
                     }
                     .padding(.bottom)
                     .listRowSeparator(.hidden)
@@ -156,15 +149,14 @@ struct AddView: View {
                 .alert(isPresented: $isShowHomeAlert) {
                     Alert(title: Text("タスクを追加しました！"),
                           primaryButton: .default(Text("別のタスクを追加")),
-                        secondaryButton: .default(Text("ホームへ移動"),
-                                                                   action: {
+                          secondaryButton: .default(Text("ホームへ移動"),
+                                                    action: {
                         // ホームへ移動させる
                         tabSelection = 0
                     }))
                 }
             }
             .navigationTitle("タスク追加")
-            .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             // datePickerを５分刻みにする

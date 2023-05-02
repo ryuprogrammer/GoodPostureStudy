@@ -35,63 +35,21 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 if tasks.isEmpty {
-                    Text(showStartText)
+                    emptyTaskListView
                 } else {
                     List {
-                        Section {
-                            // 時間を表示
-                            CircularTimeBarView()
-                                .scaleEffect(CGSize(width: 0.8, height: 0.8))
-                                .frame(maxWidth: .infinity)
-                        } header: {
-                            Text("タイムテーブル")
-                                .font(.title2)
-                                .padding(5)
-                        }
+                        CircularTimeBarViewSection
                         // リストの区切り線を消す
                         .listRowSeparator(.hidden)
-
                         
                         Section {
                             // 今日やること
-                            ForEach(tasks) { data in
-                                if data.isDone == false {
-                                    HStack {
-                                        Image(systemName: "highlighter")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(8)
-                                            .foregroundColor(.white)
-                                            .frame(width: 50, height: 50)
-                                            .background(Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue).opacity(0.5))
-                                            .cornerRadius(8)
-                                            .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue), radius: 5, x: 3, y: 3)
-                                            .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
-                                        
-                                        VStack {
-                                            Text(data.task!)
-                                                .font(.system(size: 20))
-                                                .bold()
-                                            
-                                            Text("\(data.startTime!.formattedTimeString())〜\(data.endTime!.formattedTimeString())")
-                                                .font(.system(size: 15))
-                                        }
-                                        .frame(width: 200)
-                                        
-                                        Button {
-                                            selectedTask = data
-                                        } label: {
-                                            Text("スタート")
-                                                .font(.title3)
-                                                .frame(width: 120, height: 40)
-                                                .foregroundColor(.white)
-                                                .background(Color.blue)
-                                                .cornerRadius(13)
-                                        }
-                                    }
+                            ForEach(tasks) { task in
+                                if task.isDone == false {
+                                    TaskCardView(selectedTask: $selectedTask, task: task)
                                     // リストの区切り線を消す
-                                    .listRowSeparator(.hidden)
-                                    .padding(3)
+                                        .listRowSeparator(.hidden)
+                                        .padding(3)
                                 }
                             }
                             .onDelete { IndexSet in
@@ -117,6 +75,25 @@ struct HomeView: View {
                 showTextArray.append(startText[textCount-1])
                 showStartText = "\(showStartText)\(showTextArray[textCount-1])"
             }
+        }
+    }
+    
+    @ViewBuilder
+    private var emptyTaskListView: some View {
+        Text(showStartText)
+    }
+    
+    @ViewBuilder
+    private var CircularTimeBarViewSection: some View {
+        Section {
+            // 時間を表示
+            CircularTimeBarView()
+                .scaleEffect(CGSize(width: 0.8, height: 0.8))
+                .frame(maxWidth: .infinity)
+        } header: {
+            Text("タイムテーブル")
+                .font(.title2)
+                .padding(5)
         }
     }
 }

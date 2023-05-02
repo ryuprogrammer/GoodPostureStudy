@@ -22,13 +22,6 @@ struct CircularTimeBarView: View {
     @State var remainingTime: String = ""
     @State var nowTime: String = ""
     @State var isShowRemainingTime: Bool = false
-//    // 西暦（gregorian）カレンダーを生成
-//    let calendar = Calendar(identifier: .gregorian)
-//    private let dateFormatter = DateFormatter()
-//    init() {
-//        dateFormatter.dateFormat = "YYYY/MM/dd(E) \nHH:mm:ss"
-//        dateFormatter.locale = Locale(identifier: "ja_jp")
-//    }
     
     var body: some View {
         ZStack {

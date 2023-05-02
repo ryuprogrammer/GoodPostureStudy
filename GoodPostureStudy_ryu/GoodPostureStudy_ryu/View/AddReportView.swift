@@ -61,44 +61,7 @@ struct AddReportView: View {
                     .listRowSeparator(.hidden)
                 }
                 
-                HStack {
-                    Button {
-                        // BodyPoseViewに戻る
-                        dismiss()
-                    } label: {
-                        Text("勉強に戻る")
-                            .foregroundColor(Color.white)
-                            .padding(15)
-                            .frame(width: 150, height: 55)
-                            .background(Color.blue)
-                            .cornerRadius(15)
-                    }
-                    .padding(.bottom)
-                    
-                    Button {
-                        // 追加するタスクが有効かチェック
-                        if let alert = addReportViewModel.checkTask(task: addReportViewModel.content, startTime: addReportViewModel.startTime, endTime: addReportViewModel.endTime) {
-                            // アラート表示
-                            showingAlert = alert
-                        } else {
-                            // 完了したタスクを保存
-                            addReportViewModel.editSave()
-                            // 画面を閉じる
-                            dismiss()
-                        }
-                    } label: {
-                        Text("タスク完了")
-                            .foregroundColor(Color.white)
-                            .padding(15)
-                            .frame(width: 150, height: 55)
-                            .background(Color.blue)
-                            .cornerRadius(15)
-                    }
-                    .padding(.bottom)
-                    .alert(item: $showingAlert) { item in
-                        item.alert
-                    }
-                }
+                ButtonsView
             }
             .navigationTitle("完了したタスクを修正")
             .navigationBarTitleDisplayMode(.inline)
@@ -108,6 +71,48 @@ struct AddReportView: View {
         .onAppear {
             // BodyPoseViewから渡されたタスク内容
             addReportViewModel.store(task: addTask)
+        }
+    }
+    
+    @ViewBuilder
+    private var ButtonsView: some View {
+        HStack {
+            Button {
+                // BodyPoseViewに戻る
+                dismiss()
+            } label: {
+                Text("勉強に戻る")
+                    .foregroundColor(Color.white)
+                    .padding(15)
+                    .frame(width: 150, height: 55)
+                    .background(Color.blue)
+                    .cornerRadius(15)
+            }
+            .padding(.bottom)
+            
+            Button {
+                // 追加するタスクが有効かチェック
+                if let alert = addReportViewModel.checkTask(task: addReportViewModel.content, startTime: addReportViewModel.startTime, endTime: addReportViewModel.endTime) {
+                    // アラート表示
+                    showingAlert = alert
+                } else {
+                    // 完了したタスクを保存
+                    addReportViewModel.editSave()
+                    // 画面を閉じる
+                    dismiss()
+                }
+            } label: {
+                Text("タスク完了")
+                    .foregroundColor(Color.white)
+                    .padding(15)
+                    .frame(width: 150, height: 55)
+                    .background(Color.blue)
+                    .cornerRadius(15)
+            }
+            .padding(.bottom)
+            .alert(item: $showingAlert) { item in
+                item.alert
+            }
         }
     }
 }

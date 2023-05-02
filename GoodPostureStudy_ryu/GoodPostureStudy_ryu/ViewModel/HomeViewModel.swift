@@ -7,7 +7,8 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {    
+class HomeViewModel: ObservableObject {
+    @Published var selectedTask: Task?
     // タスク削除メソッド
     func delete(offsets: IndexSet) {
         TaskDataModel.shared.delete(offsets: offsets)

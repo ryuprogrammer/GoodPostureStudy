@@ -91,6 +91,8 @@ struct AddReportView: View {
             .navigationTitle("完了したタスクを修正")
             .navigationBarTitleDisplayMode(.inline)
         }
+        // ユーザーが手動で閉じないように処理
+        .interactiveDismissDisabled()
         .onAppear {
             // BodyPoseViewから渡されたタスク内容
             addReportViewModel.store(task: addTask)

@@ -53,7 +53,9 @@ struct BodyPoseView: View {
     @Environment(\.dismiss) private var dismiss
     // ナビが終了して勉強をスタート
     @State var isStartStudy: Bool = false
-    // ナビ
+    // HomeViewに戻るボタンを押した時のアラート
+    @State var isShowBackAlert: Bool = false
+    
     var body: some View {
         ZStack {
             // カメラの映像を表示
@@ -100,23 +102,47 @@ struct BodyPoseView: View {
                 VStack {
                     Spacer()
                         .frame(height: UserScreenHeight*0.7)
-                    // 完了ボタン
-                    Button {
-                        isShowAddReportView = true
-                    } label: {
-                        Text("完了")
-                            .font(.title)
-                            .foregroundColor(Color.white)
-                            .frame(width: 200, height: 55)
-                            .background(
-                                LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
-                            )
-                            .cornerRadius(15)
+                    HStack {
+                        // ホームへ戻るボタン
+                        Button {
+                            // 戻る前にアラートを表示
+                            isShowBackAlert = true
+                        } label: {
+                            Text("戻る")
+                                .font(.title)
+                                .foregroundColor(Color.white)
+                                .frame(width: 100, height: 55)
+                                .background(
+                                    LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
+                                )
+                                .cornerRadius(15)
+                        }
+                        
+                        // 完了ボタン
+                        Button {
+                            isShowAddReportView = true
+                        } label: {
+                            Text("完了")
+                                .font(.title)
+                                .foregroundColor(Color.white)
+                                .frame(width: 250, height: 55)
+                                .background(
+                                    LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
+                                )
+                                .cornerRadius(15)
+                        }
                     }
                 }
             }
             // メッセージカード
             NaviView(alertText: $bodyPoseViewModel.alertText, isStart: $isStartStudy)
+        }
+        // ホームへ戻る前のアラート
+        .alert(isPresented: $isShowBackAlert) {
+            Alert(title: Text("注意"),
+                  message: Text("ホームへ戻ると\nタイマーが保存されません。"),
+                  primaryButton: .cancel(Text("キャンセル")),
+                  secondaryButton: .destructive(Text("ホームへ戻る"), action: { dismiss() }))
         }
         .sheet(isPresented: $isShowAddReportView, onDismiss: {
             // HomeViewに戻る

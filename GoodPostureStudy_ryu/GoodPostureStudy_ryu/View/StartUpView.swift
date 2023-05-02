@@ -9,8 +9,6 @@ import SwiftUI
 import CoreData
 
 struct StartUpView: View {
-    // TabViewModelのインスタンス生成
-    @StateObject var tabViewModel = TabViewModel()
     // タブをコードで動的に切り替える
     @State var tabSelection: Int = 0
     @Environment(\.managedObjectContext) private var viewContext

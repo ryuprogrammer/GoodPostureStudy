@@ -19,7 +19,7 @@ struct HomeView: View {
     // 文字アニメーション用timer
     @State private var textAnimation = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     // タスクがない場合に表示するアニメーションテキスト
-    private let startText = Array("一日の始まりです。まずはタスクを追加しましょう。")
+    private let startText = Array("1日の始まりです。まずはタスクを追加しましょう!")
     // 表示するアニメーションテキストの配列Ver
     @State var showTextArray = []
     // 表示するアニメーションテキストのStringVer
@@ -108,8 +108,8 @@ struct HomeView: View {
     }
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}

@@ -13,7 +13,6 @@
 		5A25DCA729FD51C800E9D2AB /* NaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCA629FD51C800E9D2AB /* NaviView.swift */; };
 		5A25DCA929FD556400E9D2AB /* NaviViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */; };
 		5A25DCAB29FE9AEC00E9D2AB /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */; };
-		5A25DCB129FF6B1A00E9D2AB /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB029FF6B1A00E9D2AB /* TabViewModel.swift */; };
 		5A25DCB329FF772700E9D2AB /* BarMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB229FF772700E9D2AB /* BarMarkView.swift */; };
 		5A25DCB529FF7B1800E9D2AB /* BarMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */; };
 		5A25DCB729FF997500E9D2AB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB629FF997500E9D2AB /* Date+.swift */; };
@@ -50,7 +49,6 @@
 		5A25DCA629FD51C800E9D2AB /* NaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviView.swift; sourceTree = "<group>"; };
 		5A25DCA829FD556400E9D2AB /* NaviViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviViewModel.swift; sourceTree = "<group>"; };
 		5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
-		5A25DCB029FF6B1A00E9D2AB /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
 		5A25DCB229FF772700E9D2AB /* BarMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkView.swift; sourceTree = "<group>"; };
 		5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkViewModel.swift; sourceTree = "<group>"; };
 		5A25DCB629FF997500E9D2AB /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		5AFCD05429F41F7F00BA7A86 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5A25DCB029FF6B1A00E9D2AB /* TabViewModel.swift */,
 				5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */,
 				5A25DCA229FBA5DA00E9D2AB /* ReportViewModel.swift */,
 				5AFCD07629F77D7900BA7A86 /* BodyPoseViewModel.swift */,
@@ -281,7 +278,6 @@
 				5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */,
 				5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */,
 				5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */,
-				5A25DCB129FF6B1A00E9D2AB /* TabViewModel.swift in Sources */,
 				5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */,
 				5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */,
 				5AFCD05229F41E5700BA7A86 /* Task+CoreDataProperties.swift in Sources */,

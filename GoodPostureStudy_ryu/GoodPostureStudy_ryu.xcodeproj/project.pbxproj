@@ -17,6 +17,7 @@
 		5A25DCB329FF772700E9D2AB /* BarMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB229FF772700E9D2AB /* BarMarkView.swift */; };
 		5A25DCB529FF7B1800E9D2AB /* BarMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */; };
 		5A25DCB729FF997500E9D2AB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCB629FF997500E9D2AB /* Date+.swift */; };
+		5A25DCBC2A009F8B00E9D2AB /* CircularTimeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DCBB2A009F8B00E9D2AB /* CircularTimeBarViewModel.swift */; };
 		5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */; };
 		5AFCD03F29F4136E00BA7A86 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */; };
 		5AFCD04129F4136F00BA7A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFCD04029F4136F00BA7A86 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		5A25DCB229FF772700E9D2AB /* BarMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkView.swift; sourceTree = "<group>"; };
 		5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkViewModel.swift; sourceTree = "<group>"; };
 		5A25DCB629FF997500E9D2AB /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		5A25DCBB2A009F8B00E9D2AB /* CircularTimeBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarViewModel.swift; sourceTree = "<group>"; };
 		5AFCD03929F4136E00BA7A86 /* GoodPostureStudy_ryu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodPostureStudy_ryu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFCD03C29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodPostureStudy_ryuApp.swift; sourceTree = "<group>"; };
 		5AFCD03E29F4136E00BA7A86 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				5A25DC9E29FB943000E9D2AB /* AddReportViewModel.swift */,
 				5A25DCAA29FE9AEC00E9D2AB /* CameraViewModel.swift */,
 				5A25DCB429FF7B1800E9D2AB /* BarMarkViewModel.swift */,
+				5A25DCBB2A009F8B00E9D2AB /* CircularTimeBarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				5AFCD05F29F4398F00BA7A86 /* AddViewModel.swift in Sources */,
 				5AFCD03D29F4136E00BA7A86 /* GoodPostureStudy_ryuApp.swift in Sources */,
 				5AFCD07D29F909C000BA7A86 /* Color+.swift in Sources */,
+				5A25DCBC2A009F8B00E9D2AB /* CircularTimeBarViewModel.swift in Sources */,
 				5AFCD07529F77B9200BA7A86 /* BodyPoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

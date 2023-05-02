@@ -62,7 +62,7 @@ struct HomeView: View {
                                                 .font(.system(size: 20))
                                                 .bold()
                                             
-                                            Text("\(homeViewModel.dateString(date: data.startTime!))〜\(homeViewModel.dateString(date: data.endTime!))")
+                                            Text("\(data.startTime!.formattedTimeString())〜\(data.endTime!.formattedTimeString())")
                                                 .font(.system(size: 15))
                                         }
                                         .frame(width: 200)

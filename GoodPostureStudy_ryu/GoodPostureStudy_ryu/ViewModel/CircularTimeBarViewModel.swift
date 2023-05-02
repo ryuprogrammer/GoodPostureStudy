@@ -8,6 +8,7 @@
 import Foundation
 
 struct CircularTimeBarViewModel {
+    // タスクのstartTimeが今日か判定
     func isEqualToDate(startTime: Date) -> Bool {
         let nowDate = Date()
         let nowDateString = nowDate.formattedDateString()

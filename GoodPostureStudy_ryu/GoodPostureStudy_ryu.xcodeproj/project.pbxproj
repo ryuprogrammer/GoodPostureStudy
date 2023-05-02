@@ -33,7 +33,6 @@
 		5AFCD06329F4D98700BA7A86 /* CircularTimeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */; };
 		5AFCD06729F5430700BA7A86 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */; };
 		5AFCD06B29F59A0B00BA7A86 /* BodyPoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */; };
-		5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */; };
 		5AFCD07129F77AFB00BA7A86 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07029F77AFB00BA7A86 /* CameraView.swift */; };
 		5AFCD07329F77B2600BA7A86 /* BodyLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */; };
 		5AFCD07529F77B9200BA7A86 /* BodyPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCD07429F77B9200BA7A86 /* BodyPoints.swift */; };
@@ -70,7 +69,6 @@
 		5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimeBarView.swift; sourceTree = "<group>"; };
 		5AFCD06629F5430700BA7A86 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5AFCD06A29F59A0B00BA7A86 /* BodyPoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseView.swift; sourceTree = "<group>"; };
-		5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		5AFCD07029F77AFB00BA7A86 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLineView.swift; sourceTree = "<group>"; };
 		5AFCD07429F77B9200BA7A86 /* BodyPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoints.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				5AFCD07029F77AFB00BA7A86 /* CameraView.swift */,
 				5A25DCA629FD51C800E9D2AB /* NaviView.swift */,
 				5AFCD07229F77B2600BA7A86 /* BodyLineView.swift */,
-				5AFCD06E29F6DA9300BA7A86 /* CircularProgressBarView.swift */,
 				5AFCD06229F4D98700BA7A86 /* CircularTimeBarView.swift */,
 				5A25DCB229FF772700E9D2AB /* BarMarkView.swift */,
 			);
@@ -275,7 +272,6 @@
 				5AFCD05D29F4389100BA7A86 /* AddView.swift in Sources */,
 				5A25DC9D29FB91A900E9D2AB /* AddReportView.swift in Sources */,
 				5AFCD05129F41E5700BA7A86 /* Task+CoreDataClass.swift in Sources */,
-				5AFCD06F29F6DA9300BA7A86 /* CircularProgressBarView.swift in Sources */,
 				5AFCD04629F4136F00BA7A86 /* Persistence.swift in Sources */,
 				5AFCD06129F4406000BA7A86 /* ReportView.swift in Sources */,
 				5AFCD07A29F842E200BA7A86 /* PostureModel.swift in Sources */,

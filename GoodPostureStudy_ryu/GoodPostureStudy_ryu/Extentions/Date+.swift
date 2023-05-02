@@ -20,7 +20,7 @@ extension Date {
     // Dateから時間のみ取得
     func formattedTimeString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "H:mm"
         dateFormatter.locale = Locale(identifier: "jp_JP")
         let changedTime = dateFormatter.string(from: self)
         return changedTime

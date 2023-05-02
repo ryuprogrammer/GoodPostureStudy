@@ -17,13 +17,40 @@ extension Date {
         return changedDate
     }
     
-    // Dateから時間のみ取得
+    // Dateから日にちを取得
+    func formattedDayString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d"
+        dateFormatter.locale = Locale(identifier: "jp_JP")
+        let changedDay = dateFormatter.string(from: self)
+        return changedDay
+    }
+    
+    // Dateから時間と分取得
     func formattedTimeString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "H:mm"
         dateFormatter.locale = Locale(identifier: "jp_JP")
         let changedTime = dateFormatter.string(from: self)
         return changedTime
+    }
+    
+    // Dateから時間のみ取得
+    func formattedHourInt() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "H"
+        dateFormatter.locale = Locale(identifier: "jp_JP")
+        let hour = dateFormatter.string(from: self)
+        return Int(hour) ?? 0
+    }
+    
+    // Dateから分のみ取得
+    func formattedMinutesInt() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "m"
+        dateFormatter.locale = Locale(identifier: "jp_JP")
+        let minutes = dateFormatter.string(from: self)
+        return Int(minutes) ?? 0
     }
     
     // 今日の残り時間を取得

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BodyLineView: View {
     var bodyPoints: BodyPoints?
+    
     var body: some View {
         ZStack {
             Path { path in

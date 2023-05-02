@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct HomeView: View {
-    // HomeViewModelのインスタンス生成
-    let homeViewModel = HomeViewModel()
-    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
-    @Environment(\.managedObjectContext) private var context
     // データの取得処理
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
     var tasks: FetchedResults<Task>
+    // 選択されたタスク
     @State var selectedTask: Task?
+    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
+    @Environment(\.managedObjectContext) private var context
     // 文字アニメーション用timer
     @State private var textAnimation = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    // 表示するアニメーションテキストの配列Ver
+    @State private var showTextArray = []
+    // 表示するアニメーションテキストのStringVer
+    @State private var showStartText = ""
+    // テキストを一つずつ表示
+    @State private var textCount = 0
     // タスクがない場合に表示するアニメーションテキスト
     private let startText = Array("1日の始まりです。まずはタスクを追加しましょう!")
-    // 表示するアニメーションテキストの配列Ver
-    @State var showTextArray = []
-    // 表示するアニメーションテキストのStringVer
-    @State var showStartText = ""
-    // テキストを一つずつ表示
-    @State var textCount = 0
+    // HomeViewModelのインスタンス生成
+    private let homeViewModel = HomeViewModel()
     // ユーザーのデバイスの画面の大きさ
-    let UserScreenWidth: Double = UIScreen.main.bounds.size.width
-    let UserScreenHeight: Double = UIScreen.main.bounds.size.height
+    private let UserScreenWidth: Double = UIScreen.main.bounds.size.width
+    private let UserScreenHeight: Double = UIScreen.main.bounds.size.height
     
     var body: some View {
         NavigationView {

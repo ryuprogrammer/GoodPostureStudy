@@ -10,11 +10,11 @@ import UIKit
 import AVFoundation
 import Vision
 
-class CameraViewModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
-    // AVCaptureSessionのインスタンス
-    let session = AVCaptureSession()
+class CameraViewModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {    
     // BodyPoseViewに通知するプロパティ
     @Published var bodyPoints: BodyPoints? = nil
+    // AVCaptureSessionのインスタンス
+    private let session = AVCaptureSession()
     
     override init() {
         super.init()
@@ -85,7 +85,7 @@ class CameraViewModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampl
             let rightHip = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.rightHip)
             let leftKnee = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.leftKnee)
             let rightKnee = try observation.recognizedPoint(VNHumanBodyPoseObservation.JointName.rightKnee)
-            // ここを埋める
+
             bodyPoints = BodyPoints(leftEar: Point(point: pointChange(point: leftEar.location), confidance: leftEar.confidence),
                            leftEye: Point(point: pointChange(point: leftEye.location), confidance: leftEye.confidence),
                            rightEar: Point(point: pointChange(point: rightEar.location), confidance: rightEar.confidence),

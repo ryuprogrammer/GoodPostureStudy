@@ -11,11 +11,7 @@ import CoreData
 struct StartUpView: View {
     // タブをコードで動的に切り替える
     @State var tabSelection: Int = 0
-    @Environment(\.managedObjectContext) private var viewContext
-    // 西暦（gregorian）カレンダーを生成
-    let calendar = Calendar(identifier: .gregorian)
-    // 現在日時を取得
-    @State var nowDate = Date()
+    
     var body: some View {
         TabView(selection: $tabSelection) {
             HomeView()
@@ -40,7 +36,7 @@ struct StartUpView: View {
                 .tabItem {
                     VStack {
                         // 今日の日付のアイコンを表示
-                        Image(systemName: "\(Int(calendar.component(.day, from: nowDate))).square.fill")
+                        Image(systemName: "\(Date().formattedDayString()).square.fill")
                         Text("レポート")
                     }
                 }

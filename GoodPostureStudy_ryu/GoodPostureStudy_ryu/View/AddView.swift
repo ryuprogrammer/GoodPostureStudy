@@ -10,12 +10,21 @@ import SwiftUI
 struct AddView: View {
     // Tabを切り替える
     @Binding var tabSelection: Int
+    // データの取得処理
+    @FetchRequest(entity: Task.entity(),
+                  sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)],
+                  animation: .spring())
+    var tasks: FetchedResults<Task>
+    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
+    @Environment(\.managedObjectContext) private var context
+    // CoreDataに追加するプロパティ
+    @State var taskData: Task?
     // AddViewModelのインスタンス
     @StateObject var addViewModel = AddViewModel()
     // 何も書かれていない時のアラーム
     @State private var isTaskEmpty: Bool = false
     // 入力フォームのフォーカスの状態を管理
-    @FocusState var taskFocus: Bool
+    @FocusState private var taskFocus: Bool
     // 開始時間よりも終了時間が早い場合のアラーム
     @State private var isEndtimeEarly: Bool = false
     // アラート
@@ -23,26 +32,17 @@ struct AddView: View {
     // 入力完了後のホームへ移動するアラート
     @State private var isShowHomeAlert: Bool = false
     // 開始時間の初期値は現在時刻に設定
-    @State var startTime: Date = Date()
+    @State private var startTime: Date = Date()
     // 終了時間の初期値は１時間進めておく
-    @State var endTime: Date = Date() + (60 * 60)
-    // 西暦（gregorian）カレンダーを生成
-    let calendar = Calendar(identifier: .gregorian)
+    @State private var endTime: Date = Date() + (60 * 60)
     // テキスト
-    @State var task: String = ""
-    // アイコン
-    let iconColor: [Color] = [.red, .orange, .green, .cyan, .blue]
+    @State private var task: String = ""    
     // 選択されたアイコン（初期値は青）
-    @State var selectedIcon: Color = .blue
-    // CoreDataに追加するプロパティ
-    @State var taskData: Task?
-    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
-    @Environment(\.managedObjectContext) private var context
-    // データの取得処理
-    @FetchRequest(entity: Task.entity(),
-                  sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)],
-                  animation: .spring())
-    var tasks: FetchedResults<Task>
+    @State private var selectedIcon: Color = .blue
+    
+    
+    // アイコン
+    private let iconColor: [Color] = [.red, .orange, .green, .cyan, .blue]
     
     var body: some View {
         NavigationView {

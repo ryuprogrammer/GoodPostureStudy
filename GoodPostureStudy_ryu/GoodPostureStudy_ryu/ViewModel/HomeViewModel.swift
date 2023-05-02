@@ -7,10 +7,7 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
-    // DateFormatterのインスタンス生成
-    let dateFormatter = DateFormatter()
-    
+class HomeViewModel: ObservableObject {    
     // タスク削除メソッド
     func delete(offsets: IndexSet) {
         TaskDataModel.shared.delete(offsets: offsets)

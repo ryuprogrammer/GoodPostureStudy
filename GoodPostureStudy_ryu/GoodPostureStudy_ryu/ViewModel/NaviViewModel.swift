@@ -17,7 +17,7 @@ class NaviViewModel: ObservableObject {
         naviData = Navi(naviText: "頭から膝まで映るようにスマホを置きましょう。\n\n認識されているときは画面の縁が緑に光ります。", naviImage: "camera")
     }
     // ページ
-    enum page: Int {
+    private enum page: Int {
         case first = 1
         case second = 2
         case third = 3

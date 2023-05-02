@@ -13,8 +13,10 @@ struct BarMarkView: View {
     @StateObject var barMarkViewModel = BarMarkViewModel()
     // データの取得処理
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
+    
     var tasks: FetchedResults<Task>
     var body: some View {
+        // Chartを表示
         Chart(barMarkViewModel.reportData) { data in
             BarMark(x: .value("日付", data.day), y: .value("数値", data.timeCount))
         }

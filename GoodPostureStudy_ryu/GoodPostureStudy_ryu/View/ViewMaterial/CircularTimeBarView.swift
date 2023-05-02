@@ -22,13 +22,14 @@ struct CircularTimeBarView: View {
     @State var remainingTime: String = ""
     @State var nowTime: String = ""
     @State var isShowRemainingTime: Bool = false
-    // 西暦（gregorian）カレンダーを生成
-    let calendar = Calendar(identifier: .gregorian)
-    private let dateFormatter = DateFormatter()
-    init() {
-        dateFormatter.dateFormat = "YYYY/MM/dd(E) \nHH:mm:ss"
-        dateFormatter.locale = Locale(identifier: "ja_jp")
-    }
+//    // 西暦（gregorian）カレンダーを生成
+//    let calendar = Calendar(identifier: .gregorian)
+//    private let dateFormatter = DateFormatter()
+//    init() {
+//        dateFormatter.dateFormat = "YYYY/MM/dd(E) \nHH:mm:ss"
+//        dateFormatter.locale = Locale(identifier: "ja_jp")
+//    }
+    
     var body: some View {
         ZStack {
             // 背景の円
@@ -51,9 +52,9 @@ struct CircularTimeBarView: View {
                     let color: Color = Color(taskColorName: Color.TaskColorNames(rawValue: data.color!) ?? .blue)
                     // 進捗を示す円
                     Circle()
-                        .trim(from: CGFloat(calendar.component(.hour, from: data.startTime!))/24 + CGFloat(calendar.component(.minute, from: data.startTime!))/60,
+                        .trim(from: CGFloat(data.startTime!.formattedHourInt())/24 + CGFloat(data.startTime!.formattedMinutesInt())/60,
                               to: min(isProgress ?
-                                      CGFloat(calendar.component(.hour, from: data.endTime!))/24 + CGFloat(calendar.component(.minute, from: data.endTime!))/60: CGFloat(calendar.component(.hour, from: data.startTime!))/24 + CGFloat(calendar.component(.minute, from: data.startTime!))/60,
+                                      CGFloat(data.endTime!.formattedHourInt())/24 + CGFloat(data.endTime!.formattedMinutesInt())/60: CGFloat(data.startTime!.formattedHourInt())/24 + CGFloat(data.startTime!.formattedMinutesInt())/60,
                                       24))
                     // 線の端の形状などを指定
                         .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .butt, lineJoin: .round))
@@ -100,7 +101,7 @@ struct CircularTimeBarView: View {
                 remainingTime = Date().getRemainingTimeToday()
                 // 0:24=0:360
                 // 0:60=0:15
-                timeDegrees = Double(calendar.component(.hour, from: Date()))*15+Double(calendar.component(.minute, from: Date()))/4
+                timeDegrees = Double(Date().formattedHourInt())*15+Double(Date().formattedMinutesInt())/4
             }
     }
     }

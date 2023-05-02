@@ -25,24 +25,24 @@ struct BodyPoints {
         ]
     }
     // 頭
-    var leftEar: Point
-    var leftEye: Point
-    var rightEar: Point
-    var rightEye: Point
-    var neck: Point
-    var nose: Point
+    let leftEar: Point
+    let leftEye: Point
+    let rightEar: Point
+    let rightEye: Point
+    let neck: Point
+    let nose: Point
     // 腕
-    var leftShoulder: Point
-    var rightShoulder: Point
-    var leftElbow: Point
-    var rightElbow: Point
-    var leftWrist: Point
-    var rightWrist: Point
+    let leftShoulder: Point
+    let rightShoulder: Point
+    let leftElbow: Point
+    let rightElbow: Point
+    let leftWrist: Point
+    let rightWrist: Point
     // ウエスト
-    var root: Point
+    let root: Point
     // 脚
-    var leftHip: Point
-    var rightHip: Point
-    var leftKnee: Point
-    var rightKnee: Point
+    let leftHip: Point
+    let rightHip: Point
+    let leftKnee: Point
+    let rightKnee: Point
 }

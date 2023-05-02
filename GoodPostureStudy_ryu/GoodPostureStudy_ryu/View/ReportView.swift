@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ReportView: View {
     // ReportViewModelのインスタンス生成
-    let reportViewModel = ReportViewModel()
+    private let reportViewModel = ReportViewModel()
     // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
     @Environment(\.managedObjectContext) private var context
     // データの取得処理
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
     var tasks: FetchedResults<Task>
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -53,7 +54,7 @@ struct ReportView: View {
                                             .font(.system(size: 20))
                                             .bold()
                                         // タスクの時間を表示
-                                        Text("\(reportViewModel.dateString(date: data.startTime!))〜\(reportViewModel.dateString(date: data.endTime!))")
+                                        Text("\(data.startTime!.formattedTimeString())〜\(data.endTime!.formattedTimeString())")
                                             .font(.system(size: 15))
                                     }
                                     .frame(width: 200)

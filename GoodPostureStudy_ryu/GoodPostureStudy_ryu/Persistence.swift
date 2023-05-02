@@ -8,15 +8,12 @@
 import CoreData
 
 struct PersistenceController {
+    // シングルトン化
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-//        for _ in 0..<10 {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
         let calender = Calendar(identifier: .gregorian)
         for _ in 0 ..< 10 {
             let newTask = Task(context: viewContext)

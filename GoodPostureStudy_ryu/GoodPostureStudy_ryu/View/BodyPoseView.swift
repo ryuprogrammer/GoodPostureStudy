@@ -19,42 +19,40 @@ struct BodyPoseView: View {
     // NaviViewModelのインスタンス生成
     @StateObject var naviViewModel = NaviViewModel()
     // 背骨の角度
-    @State var bodyAngle: CGFloat = 0
+    @State private var bodyAngle: CGFloat = 0
     // 足を組んでいるか
-    @State var isCrossLegs: Bool = false
+    @State private var isCrossLegs: Bool = false
     // 伸びをしてるか
-    @State var isStretch: Bool = false
+    @State private var isStretch: Bool = false
     // 伸びをした回数
-    @State var stretchCount: Int = 0
+    @State private var stretchCount: Int = 0
     // 姿勢、足組み、伸びのメソッドを以下のtimerの間隔で実行
     @State private var timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     // 勉強時間計測のためのタイマー
     @State private var studyTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // 画面に表示するテキスト（タイマーの表示など）
-    @State var showText: String = ""
+    @State private var showText: String = ""
     // 秒数
-    @State var studyTimeCount: Int = 0
-    @State var startTime = Date()
-    @State var endTime = Date() + (60*10)
-    @State var nowTime: Date?
-    @State var progress = 0.5
+    @State private var studyTimeCount: Int = 0
+    @State private var nowTime: Date?
+    @State private var progress = 0.5
     // タイムバーの進捗割合
-    @State var timeCircleRatio: CGFloat = 0.0
+    @State private var timeCircleRatio: CGFloat = 0.0
     // 全勉強時間
-    @State var allTime: Double = 0.0
+    @State private var allTime: Double = 0.0
     // Viewの背景色のプロパティ（ジャンケンの手が有効の時青、無効の時赤に変化）
     @State private var backgroundColor = Color.red
-    // ユーザーのデバイスの画面の大きさ
-    let UserScreenWidth: Double = UIScreen.main.bounds.size.width
-    let UserScreenHeight: Double = UIScreen.main.bounds.size.height
     // AddReportViewの表示
-    @State var isShowAddReportView: Bool = false
+    @State private var isShowAddReportView: Bool = false
     // 画面を閉じる
     @Environment(\.dismiss) private var dismiss
     // ナビが終了して勉強をスタート
-    @State var isStartStudy: Bool = false
+    @State private var isStartStudy: Bool = false
     // HomeViewに戻るボタンを押した時のアラート
-    @State var isShowBackAlert: Bool = false
+    @State private var isShowBackAlert: Bool = false
+    // ユーザーのデバイスの画面の大きさ
+    private let UserScreenWidth: Double = UIScreen.main.bounds.size.width
+    private let UserScreenHeight: Double = UIScreen.main.bounds.size.height
     
     var body: some View {
         ZStack {
@@ -166,7 +164,7 @@ struct BodyPoseView: View {
                     }
                 }
                 // 残り時間を計算
-                bodyPoseViewModel.calculateTimeLeft(startTime: startTime, studyTime: nowTime, studyTimeCount: studyTimeCount)
+                bodyPoseViewModel.calculateTimeLeft(startTime: selectedTask?.startTime! ?? Date(), studyTime: nowTime, studyTimeCount: studyTimeCount)
                 // 勉強時間、画面に表示するテキストを更新
                 bodyPoseViewModel.studyTimeText(studyTimeCount: studyTimeCount, allTime: allTime)
                 // タイムバーの進捗割合を更新
@@ -176,13 +174,10 @@ struct BodyPoseView: View {
         .onAppear {
             // カメラを起動
             camera.start()
-            // 開始時間と終了時間を初期化
-            startTime = selectedTask?.startTime ?? Date()
-            endTime = selectedTask?.endTime ?? Date()
             // 開始時間と終了時間から全勉強時間を算出
-            allTime = bodyPoseViewModel.calculateAllTime(startTime: startTime, endTime: endTime)
+            allTime = bodyPoseViewModel.calculateAllTime(startTime: selectedTask!.startTime!, endTime: selectedTask!.endTime!)
             // 現在の時刻を開始時間で初期化
-            nowTime = startTime
+            nowTime = selectedTask?.startTime!
         }
     }
 }

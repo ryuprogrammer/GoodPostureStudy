@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct NaviView: View {
-    // NaviViewModelのインスタンス生成
-    @StateObject var naviViewModel = NaviViewModel()
-    // BodyPoseViewModelのインスタンス生成
+    // アラートの内容
     @Binding var alertText: String
     // 勉強がスタートしているか
     @Binding var isStart: Bool
+    // NaviViewModelのインスタンス生成
+    @StateObject var naviViewModel = NaviViewModel()
     // メッセージのページ
-    @State var messagePage: Int = 0
+    @State private var messagePage: Int = 0
+    
     var body: some View {
         ZStack {
             VStack {

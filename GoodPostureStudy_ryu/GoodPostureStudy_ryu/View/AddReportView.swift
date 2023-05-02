@@ -8,21 +8,19 @@
 import SwiftUI
 
 struct AddReportView: View {
-    // AddReportViewModelのインスタンス生成
-    @StateObject var addReportViewModel = AddReportViewModel()
-    // BodyPoseViewで進行しているタスク
-    @State var addTask: Task
-    // アラート
-    @State private var showingAlert: AddReportViewModel.AlertItem?
-    // 西暦（gregorian）カレンダーを生成
-    let calendar = Calendar(identifier: .gregorian)
-    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
-    @Environment(\.managedObjectContext) private var context
     // データの取得処理
     @FetchRequest(entity: Task.entity(),
                   sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)],
                   animation: .spring())
     var tasks: FetchedResults<Task>
+    // AddReportViewModelのインスタンス生成
+    @StateObject var addReportViewModel = AddReportViewModel()
+    // BodyPoseViewで進行しているタスク
+    @State var addTask: Task
+    // アラートの内容
+    @State private var showingAlert: AddReportViewModel.AlertItem?
+    // 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
+    @Environment(\.managedObjectContext) private var context
     // 画面を閉じる
     @Environment(\.dismiss) private var dismiss
     

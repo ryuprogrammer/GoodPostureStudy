@@ -5,12 +5,14 @@
 //  Created by トム・クルーズ on 2023/05/01.
 //
 
-import Foundation
 import SwiftUI
 
 class BarMarkViewModel: ObservableObject {
+    // Chart用Data
+    @Published var reportData: [Report] = []
     // Calender()のインスタンス生成（グレゴリオ暦を採用）
-    let calender = Calendar(identifier: .gregorian)
+    private let calender = Calendar(identifier: .gregorian)
+    
     // Chart用構造体
     struct Report: Identifiable {
         let id = UUID()
@@ -19,8 +21,6 @@ class BarMarkViewModel: ObservableObject {
         // 1日の合計勉強時間
         let timeCount: Double
     }
-    // Chart用Data
-    @Published var reportData: [Report] = []
     
     // startTimeとendTimeから時差を求める
     // 開始時間と終了時間から勉強時間（allTime）を算出
@@ -47,7 +47,7 @@ class BarMarkViewModel: ObservableObject {
         // 過去6日+今日の年月日を取得
         let days = sixDaysAgoDates()
         // チャートのx軸（日付）
-        let today: String = String(days.first(where: { $1 == 0 })!.key.suffix(5))
+        let today: String = "今日"
         let yesterday: String = String(days.first(where: { $1 == 1 })!.key.suffix(5))
         let twoDaysAgo: String = String(days.first(where: { $1 == 2 })!.key.suffix(5))
         let threeDaysAgo: String = String(days.first(where: { $1 == 3 })!.key.suffix(5))

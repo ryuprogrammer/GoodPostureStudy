@@ -17,16 +17,17 @@ class BodyPoseViewModel: ObservableObject {
     @Published var showStudyTime: String = ""
     // タイムバーの進捗割合
     @Published var timeCircleRatio: CGFloat = 0.0
-    // BodyPointsが全て検知できているか
-    var isDetectAllBodyPoints: Bool = false
     // 残り時間
-    var timeLeft: Double = 0.0
+    @Published var timeLeft: Double = 0.0
+    // BodyPointsが全て検知できているか
+    private var isDetectAllBodyPoints: Bool = false
     // PostureModelのインスタンス生成
-    let postureModel = PostureModel()
+    private let postureModel = PostureModel()
     // Calender()のインスタンス生成（グレゴリオ暦を採用）
-    let calender = Calendar(identifier: .gregorian)
+    private let calender = Calendar(identifier: .gregorian)
     // 時間表示の書式を設定
-    let formatter = DateComponentsFormatter()
+    private let formatter = DateComponentsFormatter()
+    // イニシャライザ
     init() {
         formatter.unitsStyle = .positional
         formatter.allowedUnits = [.hour, .minute, .second]

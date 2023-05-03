@@ -28,8 +28,8 @@ struct HomeView: View {
     // HomeViewModelのインスタンス生成
     private let homeViewModel = HomeViewModel()
     // ユーザーのデバイスの画面の大きさ
-    private let UserScreenWidth: Double = UIScreen.main.bounds.size.width
-    private let UserScreenHeight: Double = UIScreen.main.bounds.size.height
+    private let userScreenWidth: Double = UIScreen.main.bounds.size.width
+    private let userScreenHeight: Double = UIScreen.main.bounds.size.height
     
     var body: some View {
         NavigationView {

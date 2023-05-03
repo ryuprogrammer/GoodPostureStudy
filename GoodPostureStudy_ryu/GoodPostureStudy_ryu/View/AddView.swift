@@ -165,8 +165,11 @@ struct AddView: View {
     }
 }
 
-//struct AddView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddView()
-//    }
-//}
+struct AddView_Previews: PreviewProvider {
+    // previewsにstaticが宣言されてるため、tabSelectionにも同じく宣言
+    @State static var tabSelection = 1
+    
+    static var previews: some View {
+        AddView(tabSelection: $tabSelection)
+    }
+}

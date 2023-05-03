@@ -30,7 +30,7 @@ struct HomeView: View {
     // ユーザーのデバイスの画面の大きさ
     private let userScreenWidth: Double = UIScreen.main.bounds.size.width
     private let userScreenHeight: Double = UIScreen.main.bounds.size.height
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -39,15 +39,15 @@ struct HomeView: View {
                 } else {
                     List {
                         CircularTimeBarViewSection
-                        // リストの区切り線を消す
-                        .listRowSeparator(.hidden)
-                        
+                            // リストの区切り線を消す
+                            .listRowSeparator(.hidden)
+
                         Section {
                             // 今日やること
                             ForEach(tasks) { task in
                                 if task.isDone == false {
                                     TaskCardView(selectedTask: $selectedTask, task: task)
-                                    // リストの区切り線を消す
+                                        // リストの区切り線を消す
                                         .listRowSeparator(.hidden)
                                         .padding(3)
                                 }
@@ -77,12 +77,12 @@ struct HomeView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var emptyTaskListView: some View {
         Text(showStartText)
     }
-    
+
     @ViewBuilder
     private var CircularTimeBarViewSection: some View {
         Section {

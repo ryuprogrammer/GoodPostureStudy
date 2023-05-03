@@ -23,6 +23,6 @@ extension Task {
 
 }
 
-extension Task : Identifiable {
+extension Task: Identifiable {
 
 }

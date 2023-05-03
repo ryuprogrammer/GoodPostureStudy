@@ -11,7 +11,7 @@ struct TaskCardView: View {
     @Binding var selectedTask: Task?
     // タスク
     @State var task: Task
-    
+
     var body: some View {
         HStack {
             Image(systemName: "highlighter")
@@ -24,17 +24,17 @@ struct TaskCardView: View {
                 .cornerRadius(8)
                 .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: task.color!)!), radius: 5, x: 3, y: 3)
                 .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
-            
+
             VStack {
                 Text(task.task!)
                     .font(.system(size: 20))
                     .bold()
-                
+
                 Text("\(task.startTime!.formattedTimeString())〜\(task.endTime!.formattedTimeString())")
                     .font(.system(size: 15))
             }
             .frame(width: 200)
-            
+
             Button {
                 if task.isDone == false {
                     selectedTask = task

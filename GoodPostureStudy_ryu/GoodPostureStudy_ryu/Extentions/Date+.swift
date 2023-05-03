@@ -16,7 +16,7 @@ extension Date {
         let changedDate = dateFormatter.string(from: self)
         return changedDate
     }
-    
+
     // Dateから日にちを取得
     func formattedDayString() -> String {
         let dateFormatter = DateFormatter()
@@ -25,7 +25,7 @@ extension Date {
         let changedDay = dateFormatter.string(from: self)
         return changedDay
     }
-    
+
     // Dateから時間と分取得
     func formattedTimeString() -> String {
         let dateFormatter = DateFormatter()
@@ -34,7 +34,7 @@ extension Date {
         let changedTime = dateFormatter.string(from: self)
         return changedTime
     }
-    
+
     // Dateから時間のみ取得
     func formattedHourInt() -> Int {
         let dateFormatter = DateFormatter()
@@ -43,7 +43,7 @@ extension Date {
         let hour = dateFormatter.string(from: self)
         return Int(hour) ?? 0
     }
-    
+
     // Dateから分のみ取得
     func formattedMinutesInt() -> Int {
         let dateFormatter = DateFormatter()
@@ -52,7 +52,7 @@ extension Date {
         let minutes = dateFormatter.string(from: self)
         return Int(minutes) ?? 0
     }
-    
+
     // 今日の残り時間を取得
     func getRemainingTimeToday() -> String {
         let calendar = Calendar(identifier: .gregorian)

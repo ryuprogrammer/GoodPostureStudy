@@ -12,7 +12,7 @@ class BarMarkViewModel: ObservableObject {
     @Published var reportData: [Report] = []
     // Calender()のインスタンス生成（グレゴリオ暦を採用）
     private let calender = Calendar(identifier: .gregorian)
-    
+
     // Chart用構造体
     struct Report: Identifiable {
         let id = UUID()
@@ -21,7 +21,7 @@ class BarMarkViewModel: ObservableObject {
         // 1日の合計勉強時間
         let timeCount: Double
     }
-    
+
     // startTimeとendTimeから時差を求める
     // 開始時間と終了時間から勉強時間（allTime）を算出
     func calculateAllTime(startTime: Date, endTime: Date) -> Double {
@@ -31,7 +31,7 @@ class BarMarkViewModel: ObservableObject {
         }
         return allTime
     }
-    
+
     // taskから今日+過去6日分の勉強データをreportDataに格納
     func fetchReport(tasks: FetchedResults<Task>) {
         // データの初期化
@@ -54,7 +54,7 @@ class BarMarkViewModel: ObservableObject {
         let fourDaysAgo: String = String(days.first(where: { $1 == 4 })!.key.suffix(5))
         let fiveDaysAgo: String = String(days.first(where: { $1 == 5 })!.key.suffix(5))
         let sixDaysAgo: String = String(days.first(where: { $1 == 6 })!.key.suffix(5))
-        
+
         for task in tasks {
             guard let startTime = task.startTime else { return }
             guard let endTime = task.endTime else { return }
@@ -96,7 +96,7 @@ class BarMarkViewModel: ObservableObject {
                                        yesterdaysReport,
                                        todaysReport])
     }
-    
+
     // 今日から5日前までの年月日を取得
     func sixDaysAgoDates() -> [String: Int] {
         let day: Double = 60*60*24
@@ -111,7 +111,7 @@ class BarMarkViewModel: ObservableObject {
         ]
         return days
     }
-    
+
     // 年月日から経過日数を計算
     func daySinceToday(stringDay: String) -> Int? {
         let days = sixDaysAgoDates()

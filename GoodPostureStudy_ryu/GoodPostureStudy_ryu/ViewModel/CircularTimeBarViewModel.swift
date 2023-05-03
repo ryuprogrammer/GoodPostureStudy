@@ -13,7 +13,7 @@ struct CircularTimeBarViewModel {
         let nowDate = Date()
         let nowDateString = nowDate.formattedDateString()
         let startTimeString = startTime.formattedDateString()
-        
+
         if nowDateString == startTimeString {
             return true
         } else {

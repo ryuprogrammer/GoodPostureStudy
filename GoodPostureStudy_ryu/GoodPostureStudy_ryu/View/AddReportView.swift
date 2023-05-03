@@ -23,12 +23,12 @@ struct AddReportView: View {
     @Environment(\.managedObjectContext) private var context
     // 画面を閉じる
     @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 Divider()
-                
+
                 List {
                     Section {
                         TextField("完了したタスクを入力", text: $addReportViewModel.content)
@@ -41,17 +41,17 @@ struct AddReportView: View {
                             DatePicker("開始",
                                        selection: $addReportViewModel.startTime,
                                        displayedComponents: .hourAndMinute)
-                            .environment(\.locale, Locale(identifier: "ja_JP"))
-                            .frame(width: 120)
-                            
+                                .environment(\.locale, Locale(identifier: "ja_JP"))
+                                .frame(width: 120)
+
                             Spacer()
                                 .frame(width: 30)
-                            
+
                             DatePicker("終了",
                                        selection: $addReportViewModel.endTime,
                                        displayedComponents: .hourAndMinute)
-                            .environment(\.locale, Locale(identifier: "ja_JP"))
-                            .frame(width: 110)
+                                .environment(\.locale, Locale(identifier: "ja_JP"))
+                                .frame(width: 110)
                         }
                         .frame(maxWidth: .infinity)
                     } header: {
@@ -60,7 +60,7 @@ struct AddReportView: View {
                     .padding(.bottom)
                     .listRowSeparator(.hidden)
                 }
-                
+
                 ButtonsView
             }
             .navigationTitle("完了したタスクを修正")
@@ -73,7 +73,7 @@ struct AddReportView: View {
             addReportViewModel.store(task: addTask)
         }
     }
-    
+
     @ViewBuilder
     private var ButtonsView: some View {
         HStack {
@@ -89,7 +89,7 @@ struct AddReportView: View {
                     .cornerRadius(15)
             }
             .padding(.bottom)
-            
+
             Button {
                 // 追加するタスクが有効かチェック
                 if let alert = addReportViewModel.checkTask(task: addReportViewModel.content, startTime: addReportViewModel.startTime, endTime: addReportViewModel.endTime) {
@@ -117,8 +117,8 @@ struct AddReportView: View {
     }
 }
 
-//struct AddReportView_Previews: PreviewProvider {
+// struct AddReportView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        AddReportView(, addTask: Task)
 //    }
-//}
+// }

@@ -53,7 +53,7 @@ struct BodyPoseView: View {
     // ユーザーのデバイスの画面の大きさ
     private let UserScreenWidth: Double = UIScreen.main.bounds.size.width
     private let UserScreenHeight: Double = UIScreen.main.bounds.size.height
-    
+
     var body: some View {
         ZStack {
             // カメラの映像を表示
@@ -61,18 +61,18 @@ struct BodyPoseView: View {
                 .ignoresSafeArea(.all)
             // 骨格を表示
             BodyLineView(bodyPoints: camera.bodyPoints)
-            
+
             // 画面の大きさに合わせて画面の縁に色をつける
             RoundedRectangle(cornerRadius: 60)
                 .stroke(backgroundColor.opacity(0.5), lineWidth: 50)
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UserScreenWidth, height: UserScreenHeight)
-            
+
             // 勉強が開始したらタイマーと完了ボタンを表示
             if isStartStudy {
                 // タイムバー表示
                 TimeBarView
-                
+
                 VStack {
                     Spacer()
                         .frame(height: UserScreenHeight*0.7)
@@ -132,7 +132,7 @@ struct BodyPoseView: View {
             nowTime = selectedTask?.startTime!
         }
     }
-    
+
     @ViewBuilder
     private var ButtonsView: some View {
         HStack {
@@ -148,7 +148,7 @@ struct BodyPoseView: View {
                     .background(Color.blue.opacity(0.5))
                     .cornerRadius(15)
             }
-            
+
             // 完了ボタン
             Button {
                 isShowAddReportView = true
@@ -162,26 +162,26 @@ struct BodyPoseView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var TimeBarView: some View {
         ZStack {
             // 背景の円
             Circle()
-            // 円形の線描写するように指定
+                // 円形の線描写するように指定
                 .stroke(lineWidth: 20)
                 .foregroundColor(.mint.opacity(0.15))
-            
+
             // 進捗を示す円
             Circle()
                 .trim(from: 0.0, to: min(timeCircleRatio, 1))
-            // 線の端の形状などを指定
+                // 線の端の形状などを指定
                 .stroke(style: StrokeStyle(lineWidth: 25, lineCap: .round, lineJoin: .round))
                 .fill(LinearGradient(gradient: Gradient(colors: [.blue, .mint]),
                                      startPoint: .top,
                                      endPoint: .bottom))
                 .rotationEffect(Angle(degrees: 270))
-            
+
             // 勉強時間を表示
             Text("\(bodyPoseViewModel.showStudyTime)")
                 .frame(width: 450, height: 100)

@@ -42,7 +42,7 @@ class BodyPoseViewModel: ObservableObject {
         }
         return allTime
     }
-    
+
     // 残り時間（timeLeft）を計算
     func calculateTimeLeft(startTime: Date, studyTime: Date?, studyTimeCount: Int) {
         if let time = studyTime,
@@ -52,12 +52,12 @@ class BodyPoseViewModel: ObservableObject {
             timeLeft = Double(second)
         }
     }
-    
+
     // 勉強時間、画面に表示するテキストを更新
     func studyTimeText(studyTimeCount: Int, allTime: Double) {
         // 開始時間から終了時間までの秒数
         let allTimeSecond = Int(allTime) * 60
-        
+
         if studyTimeCount < allTimeSecond {
             if let timeText = formatter.string(from: timeLeft) {
                 // 勉強時間を表示
@@ -68,7 +68,7 @@ class BodyPoseViewModel: ObservableObject {
             showStudyTime = "finish"
         }
     }
-    
+
     // BodyPointsが全て認識されているかチェック
     func detectAllBodyPoints(bodyPoints: BodyPoints?) {
         isDetectAllBodyPoints = true
@@ -84,14 +84,14 @@ class BodyPoseViewModel: ObservableObject {
             }
         }
     }
-    
+
     // 体のポーズによってタイマーを止める
     func stopTimer(bodyPoints: BodyPoints?) {
         // 足組み
         var isCrossLegs: Bool = false
         // 伸び
         var isStretch: Bool = false
-        
+
         if let points = bodyPoints {
             isCrossLegs = postureModel.crossLegs(bodyPoints: points)
             isStretch = postureModel.stretch(bodyPoints: points)

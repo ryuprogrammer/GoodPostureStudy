@@ -13,12 +13,12 @@ class AddViewModel: ObservableObject {
     @Published var color: String = ""
     @Published var startTime: Date = Date()
     @Published var endTime: Date = Date() + (60*60)
-    
+
     struct AlertItem: Identifiable {
         var id = UUID()
         var alert: Alert
     }
-    
+
     // 追加するタスクが有効かチェック
     func checkTask(task: String, startTime: Date, endTime: Date) -> AlertItem? {
         var showingAlert: AlertItem?
@@ -29,7 +29,7 @@ class AddViewModel: ObservableObject {
         }
         return showingAlert
     }
-    
+
     func add(task: String, color: String, startTime: Date, endTime: Date) {
         TaskDataModel.shared.add(task: task, color: color, startTime: startTime, endTime: endTime)
     }

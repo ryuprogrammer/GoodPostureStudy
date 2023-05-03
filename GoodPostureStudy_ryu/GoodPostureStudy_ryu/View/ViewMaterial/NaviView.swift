@@ -16,7 +16,7 @@ struct NaviView: View {
     @StateObject var naviViewModel = NaviViewModel()
     // メッセージのページ
     @State private var messagePage: Int = 0
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -26,7 +26,7 @@ struct NaviView: View {
                     .frame(maxWidth: naviViewModel.isStartStudy ? 200 : 300)
                     .frame(maxHeight: naviViewModel.isStartStudy ? 100 : 500)
                     .cornerRadius(15)
-                    .overlay (
+                    .overlay(
                         RoundedRectangle(cornerRadius: 15)
                             .stroke()
                             .foregroundStyle(
@@ -37,16 +37,16 @@ struct NaviView: View {
                     )
                     .shadow(color: .black.opacity(0.3), radius: 20, y: 20)
                     .padding(50)
-                
-                    Spacer()
+
+                Spacer()
                     .frame(height: naviViewModel.isStartStudy ? 600 : 0)
             }
-                
+
             if naviViewModel.isStartStudy {
                 VStack {
                     // アラートメッセージ
                     Text(alertText)
-                    
+
                     Spacer()
                         .frame(height: naviViewModel.isStartStudy ? 600 : 0)
                 }
@@ -62,7 +62,7 @@ struct NaviView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60, height: 60)
-                    
+
                     Spacer()
                     Text("タップして次へ")
                         .padding(20)

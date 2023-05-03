@@ -36,14 +36,13 @@ struct AddView: View {
     // 終了時間の初期値は１時間進めておく
     @State private var endTime: Date = Date() + (60 * 60)
     // テキスト
-    @State private var task: String = ""    
+    @State private var task: String = ""
     // 選択されたアイコン（初期値は青）
     @State private var selectedIcon: Color = .blue
-    
-    
+
     // アイコン
     private let iconColor: [Color] = [.red, .orange, .green, .cyan, .blue]
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -53,14 +52,14 @@ struct AddView: View {
                             .font(.system(size: 20))
                             .frame(width: 360, height: 20)
                             .frame(maxWidth: .infinity)
-                        // キーボードのフォーカス状態を監視
+                            // キーボードのフォーカス状態を監視
                             .focused(self.$taskFocus)
                     } header: {
                         Text("やること")
                             .padding(3)
                     }
                     .listRowSeparator(.hidden)
-                    
+
                     Section {
                         HStack {
                             ForEach(iconColor, id: \.self) { color in
@@ -88,26 +87,26 @@ struct AddView: View {
                             .padding(3)
                     }
                     .listRowSeparator(.hidden)
-                    
+
                     Section {
                         HStack {
                             DatePicker("開始",
                                        selection: $addViewModel.startTime,
                                        displayedComponents: .hourAndMinute)
-                            .environment(\.locale, Locale(identifier: "ja_JP"))
-                            .frame(width: 120)
-                            .onChange(of: addViewModel.startTime) { startTime in
-                                addViewModel.endTime = startTime + (60 * 60)
-                            }
-                            
+                                .environment(\.locale, Locale(identifier: "ja_JP"))
+                                .frame(width: 120)
+                                .onChange(of: addViewModel.startTime) { startTime in
+                                    addViewModel.endTime = startTime + (60 * 60)
+                                }
+
                             Spacer()
                                 .frame(width: 30)
-                            
+
                             DatePicker("終了",
                                        selection: $addViewModel.endTime,
                                        displayedComponents: .hourAndMinute)
-                            .environment(\.locale, Locale(identifier: "ja_JP"))
-                            .frame(width: 110)
+                                .environment(\.locale, Locale(identifier: "ja_JP"))
+                                .frame(width: 110)
                         }
                         .frame(maxWidth: .infinity)
                     } header: {
@@ -118,7 +117,7 @@ struct AddView: View {
                     .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
-                
+
                 Button {
                     // キーボードを閉じる
                     taskFocus = false
@@ -151,9 +150,9 @@ struct AddView: View {
                           primaryButton: .default(Text("別のタスクを追加")),
                           secondaryButton: .default(Text("ホームへ移動"),
                                                     action: {
-                        // ホームへ移動させる
-                        tabSelection = 0
-                    }))
+                                                        // ホームへ移動させる
+                                                        tabSelection = 0
+                                                    }))
                 }
             }
             .navigationTitle("タスク追加")
@@ -168,7 +167,7 @@ struct AddView: View {
 struct AddView_Previews: PreviewProvider {
     // previewsにstaticが宣言されてるため、tabSelectionにも同じく宣言
     @State static var tabSelection = 1
-    
+
     static var previews: some View {
         AddView(tabSelection: $tabSelection)
     }

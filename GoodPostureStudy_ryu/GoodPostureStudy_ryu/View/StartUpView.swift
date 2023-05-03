@@ -11,7 +11,7 @@ import CoreData
 struct StartUpView: View {
     // タブをコードで動的に切り替える
     @State var tabSelection: Int = 0
-    
+
     var body: some View {
         TabView(selection: $tabSelection) {
             HomeView()
@@ -22,7 +22,7 @@ struct StartUpView: View {
                     }
                 }
                 .tag(0)
-            
+
             AddView(tabSelection: $tabSelection)
                 .tabItem {
                     VStack {
@@ -31,7 +31,7 @@ struct StartUpView: View {
                     }
                 }
                 .tag(1)
-            
+
             ReportView()
                 .tabItem {
                     VStack {

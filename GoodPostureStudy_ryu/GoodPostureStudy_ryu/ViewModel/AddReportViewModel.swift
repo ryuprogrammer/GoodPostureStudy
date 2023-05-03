@@ -15,12 +15,12 @@ class AddReportViewModel: ObservableObject {
     @Published var startTime: Date = Date()
     @Published var endTime: Date = Date() + (60*60)
     private var task: Task?
-    
+
     struct AlertItem: Identifiable {
         var id = UUID()
         var alert: Alert
     }
-    
+
     // 追加するタスクが有効かチェック
     func checkTask(task: String, startTime: Date, endTime: Date) -> AlertItem? {
         var showingAlert: AlertItem?
@@ -31,7 +31,7 @@ class AddReportViewModel: ObservableObject {
         }
         return showingAlert
     }
-    
+
     // 編集するタスク内容を渡す
     func store(task: Task) {
         self.task = task
@@ -40,7 +40,7 @@ class AddReportViewModel: ObservableObject {
         startTime = task.startTime ?? Date()
         endTime = task.endTime ?? Date() + (60*60)
     }
-    
+
     // 編集したタスク内容を保存
     func editSave() {
         task?.task = content

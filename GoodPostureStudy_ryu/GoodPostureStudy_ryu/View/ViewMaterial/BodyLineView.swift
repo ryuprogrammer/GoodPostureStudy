@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BodyLineView: View {
     var bodyPoints: BodyPoints?
-    
+
     var body: some View {
         ZStack {
             Path { path in
@@ -81,7 +81,7 @@ struct BodyLineView: View {
             }
             .strokedPath(.init(lineWidth: 10, lineCap: .round, lineJoin: .round))
             .fill(LinearGradient(gradient: Gradient(colors: [.blue, .pink, .purple]), startPoint: .top, endPoint: .bottom))
-            
+
             ForEach(bodyPoints?.points ?? []) { point in
                 if point.confidance > 0 {
                     Circle()

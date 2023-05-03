@@ -11,7 +11,7 @@ class NaviViewModel: ObservableObject {
     // ナビ用テキスト
     @Published var naviData: Navi = Navi(naviText: "", naviImage: "")
     @Published var isStartStudy = false
-    
+
     // インスタンスが生成された時に初期化される
     init() {
         naviData = Navi(naviText: "頭から膝まで映るようにスマホを置きましょう。\n\n認識されているときは画面の縁が緑に光ります。", naviImage: "camera")
@@ -23,12 +23,12 @@ class NaviViewModel: ObservableObject {
         case third = 3
         case last = 4
     }
-    
+
     struct Navi {
         let naviText: String
         let naviImage: String
     }
-    
+
     func changeNaviText(messagePage: Int) {
         if messagePage <= page.last.rawValue {
             switch messagePage {

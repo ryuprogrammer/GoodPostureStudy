@@ -9,13 +9,13 @@ import SwiftUI
 
 extension Color {
     enum TaskColorNames: String {
-    case red = ".red"
+        case red = ".red"
         case orange = ".orange"
         case green = ".green"
         case cyan = ".cyan"
         case blue = ".blue"
     }
-    
+
     // initはインスタンス生成時に必ず呼ばれる
     init(taskColorName: TaskColorNames) {
         switch taskColorName {
@@ -26,7 +26,7 @@ extension Color {
         case .blue: self = .blue
         }
     }
-    
+
     func toCustomColorName() -> TaskColorNames {
         switch self {
         case .red: return .red

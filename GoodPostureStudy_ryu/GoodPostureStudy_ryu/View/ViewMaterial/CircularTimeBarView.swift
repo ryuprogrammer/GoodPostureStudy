@@ -22,15 +22,15 @@ struct CircularTimeBarView: View {
     @State var remainingTime: String = ""
     @State var nowTime: String = ""
     @State var isShowRemainingTime: Bool = false
-    
+
     var body: some View {
         ZStack {
             // 背景の円
             Circle()
-            // 円形の線描写するように指定
+                // 円形の線描写するように指定
                 .stroke(lineWidth: 50)
                 .foregroundColor(.gray.opacity(0.15))
-            
+
             // 現在時刻までmask
             Circle()
                 // 0:1=0:360
@@ -38,7 +38,7 @@ struct CircularTimeBarView: View {
                 .stroke(style: StrokeStyle(lineWidth: 50, lineCap: .butt, lineJoin: .round))
                 .foregroundColor(.gray.opacity(isShowRemainingTime ? 0.6 : 0))
                 .rotationEffect(Angle(degrees: 90))
-            
+
             ForEach(tasks) { data in
                 // 今日のタスクのみ表示
                 if circularTimeBarViewModel.isEqualToDate(startTime: data.startTime!) {
@@ -47,9 +47,9 @@ struct CircularTimeBarView: View {
                     Circle()
                         .trim(from: CGFloat(data.startTime!.formattedHourInt())/24 + CGFloat(data.startTime!.formattedMinutesInt())/60,
                               to: min(isProgress ?
-                                      CGFloat(data.endTime!.formattedHourInt())/24 + CGFloat(data.endTime!.formattedMinutesInt())/60: CGFloat(data.startTime!.formattedHourInt())/24 + CGFloat(data.startTime!.formattedMinutesInt())/60,
+                                        CGFloat(data.endTime!.formattedHourInt())/24 + CGFloat(data.endTime!.formattedMinutesInt())/60: CGFloat(data.startTime!.formattedHourInt())/24 + CGFloat(data.startTime!.formattedMinutesInt())/60,
                                       24))
-                    // 線の端の形状などを指定
+                        // 線の端の形状などを指定
                         .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .butt, lineJoin: .round))
                         .fill(LinearGradient(gradient: Gradient(colors: [color, color.opacity(0.5)]),
                                              startPoint: .top,
@@ -57,7 +57,7 @@ struct CircularTimeBarView: View {
                         .rotationEffect(Angle(degrees: 90))
                 }
             }
-            
+
             ForEach(0..<24) { time in
                 // 円の区切り線
                 Rectangle()
@@ -65,15 +65,15 @@ struct CircularTimeBarView: View {
                     .foregroundColor(.white)
                     .cornerRadius(20)
                     .rotationEffect(Angle(degrees: Double(time*15)))
-                
+
                 // 時計の数字
                 ZStack {
                     Text("\(time)")
-                        .position(x: 140, y:-13)
+                        .position(x: 140, y: -13)
                         .rotationEffect(Angle(degrees: Double(time*15)+174.5))
                 }
             }
-            
+
             // 時間または残り時間を表示
             Text(isShowRemainingTime ? remainingTime : nowTime)
                 .bold()
@@ -96,7 +96,7 @@ struct CircularTimeBarView: View {
                 // 0:60=0:15
                 timeDegrees = Double(Date().formattedHourInt())*15+Double(Date().formattedMinutesInt())/4
             }
-    }
+        }
     }
 }
 

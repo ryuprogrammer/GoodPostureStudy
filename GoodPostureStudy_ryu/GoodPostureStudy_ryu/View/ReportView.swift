@@ -16,22 +16,22 @@ struct ReportView: View {
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "startTime", ascending: true)], animation: .spring())
     var tasks: FetchedResults<Task>
     @State var selectedTask: Task?
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     BarMarkSectionView
-                    // リストの区切り線を消す
+                        // リストの区切り線を消す
                         .listRowSeparator(.hidden)
-                    
+
                     Section {
                         // 完了したタスク
                         ForEach(tasks) { task in
                             // 完了したタスクのみ表示
                             if task.isDone == true {
                                 TaskCardView(selectedTask: $selectedTask, task: task)
-                                // リストの区切り線を消す
+                                    // リストの区切り線を消す
                                     .listRowSeparator(.hidden)
                                     .padding(3)
                             }
@@ -51,7 +51,7 @@ struct ReportView: View {
             .navigationTitle("レポート")
         }
     }
-    
+
     @ViewBuilder
     private var BarMarkSectionView: some View {
         Section {

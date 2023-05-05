@@ -18,7 +18,7 @@ struct ReportView: View {
     @State var selectedTask: Task?
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 List {
                     BarMarkSectionView

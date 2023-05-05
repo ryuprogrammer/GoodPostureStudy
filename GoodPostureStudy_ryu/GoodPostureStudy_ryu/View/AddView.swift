@@ -44,7 +44,7 @@ struct AddView: View {
     private let iconColor: [Color] = [.red, .orange, .green, .cyan, .blue]
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 List {
                     Section {

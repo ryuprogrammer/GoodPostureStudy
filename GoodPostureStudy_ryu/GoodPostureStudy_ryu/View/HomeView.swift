@@ -32,7 +32,7 @@ struct HomeView: View {
     private let userScreenHeight: Double = UIScreen.main.bounds.size.height
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if tasks.isEmpty {
                     emptyTaskListView

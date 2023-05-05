@@ -33,7 +33,7 @@ struct ReportView: View {
                                 TaskCardView(selectedTask: $selectedTask, task: task)
                                     // リストの区切り線を消す
                                     .listRowSeparator(.hidden)
-                                    .padding(3)
+                                    .padding(.horizontal, 30)
                             }
                         }
                         .onDelete { IndexSet in

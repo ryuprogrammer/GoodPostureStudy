@@ -13,7 +13,7 @@ struct TaskCardView: View {
     @State var task: Task
 
     var body: some View {
-        HStack {
+        HStack(spacing: 30) {
             Image(systemName: "highlighter")
                 .resizable()
                 .scaledToFit()
@@ -24,16 +24,17 @@ struct TaskCardView: View {
                 .cornerRadius(8)
                 .shadow(color: Color(taskColorName: Color.TaskColorNames(rawValue: task.color!)!), radius: 5, x: 3, y: 3)
                 .shadow(color: .white.opacity(0.5), radius: 5, x: -3, y: -3)
+                .padding(.leading, 25)
 
             VStack {
                 Text(task.task!)
-                    .font(.system(size: 20))
+                    .font(.system(size: 18))
                     .bold()
 
                 Text("\(task.startTime!.formattedTimeString())〜\(task.endTime!.formattedTimeString())")
                     .font(.system(size: 15))
             }
-            .frame(width: 200)
+            .frame(width: 130)
 
             Button {
                 if task.isDone == false {
@@ -47,6 +48,7 @@ struct TaskCardView: View {
                     .background(Color.blue)
                     .cornerRadius(13)
             }
+            .padding(.trailing, 25)
             .disabled(task.isDone)
         }
     }

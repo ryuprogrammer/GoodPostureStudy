@@ -91,8 +91,10 @@ struct BodyPoseView: View {
                   secondaryButton: .default(Text("ホームへ戻る"), action: { dismiss() }))
         }
         .sheet(isPresented: $isShowAddReportView, onDismiss: {
+            // アンラップ
+            guard let select = selectedTask else { return }
             // タスクが完了しているか判定
-            if selectedTask!.isDone {
+            if select.isDone {
                 // タスクが完了している時のみHomeViewに戻る
                 dismiss()
             }

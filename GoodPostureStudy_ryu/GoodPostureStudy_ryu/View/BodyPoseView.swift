@@ -92,9 +92,9 @@ struct BodyPoseView: View {
         }
         .sheet(isPresented: $isShowAddReportView, onDismiss: {
             // アンラップ
-            guard let select = selectedTask else { return }
+            guard let selectedTaskUnwrapped = selectedTask else { return }
             // タスクが完了しているか判定
-            if select.isDone {
+            if selectedTaskUnwrapped.isDone {
                 // タスクが完了している時のみHomeViewに戻る
                 dismiss()
             }

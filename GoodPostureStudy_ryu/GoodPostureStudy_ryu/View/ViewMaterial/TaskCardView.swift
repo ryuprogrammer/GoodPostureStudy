@@ -60,17 +60,18 @@ struct TaskCardView: View {
             .disabled(task.isDone)
         }
         .onAppear {
-            // タスクの色をTaskデータで更新
-            guard let color = task.color else { return }
-            guard let colorName = Color.TaskColorNames(rawValue: color) else { return }
+            // Taskのデータをアンラップ
+            guard let color = task.color,
+                  let colorName = Color.TaskColorNames(rawValue: color),
+                  let content = task.task,
+                  let start = task.startTime,
+                  let end = task.endTime else {
+                return
+            }
+            
             taskColor = Color(taskColorName: colorName)
-            // タスク内容をTaskデータで更新
-            guard let content = task.task else { return }
             taskContent = content
-            // タスクの開始時間と終了時間をTaskデータで更新
-            guard let start = task.startTime else { return }
             startTime = start
-            guard let end = task.endTime else { return }
             endTime = end
         }
     }

@@ -52,13 +52,7 @@ CoreDataからタスクデータを取得して、完了済みのタスクの合
 
 https://github.com/CodeCandySchool/GoodPostureStudy_ryu/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/ViewModel/BarMarkViewModel.swift#L10-L127
 
-## 9. アプリ起動方法（オプション）
-ローカルマシンでプロジェクトを実行する方法について記述をします。
-フレームワークのインストール、プロジェクトを起動する為に、何らかのシェルを実行するようにしている等、特別な起動方法があれば記載をしてください。
-
-## 参考情報
-他の受講生のポートフォリオです。
-https://github.com/motoki418/WalkingApp
-https://github.com/Ken20215/MotivationUpTaskControl
-
+## 9 その他リンク
+[ホームページ](https://y70ns.hp.peraichi.com/posta)
+[作成者Twitter](https://twitter.com/engineerforios?s=11&t=E3_w-CiFaS5cBpi-By2fYg)
 

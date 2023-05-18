@@ -38,6 +38,19 @@ Miroでも、Keynoteでも、フリーボードでも作成しやすいツール
 ## 8. 工夫したコード／設計
 プロジェクトで工夫した設計や、コードを具体的に示してください。
 該当コードを示して、どんな工夫をしたのか分かりやすく記載してください。
+### ポイント１ タスクをタイムチャートで表示
+タスクの開始時間と終了時間を可視化するためにタイムチャートを作成しました。
+↓タイムチャート
+<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/c693b9d4-d165-4f24-8c86-bb3d8ed56e55">
+
+https://github.com/CodeCandySchool/GoodPostureStudy_ryu/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/View/ViewMaterial/CircularTimeBarView.swift#L27-L100
+
+### ポイント２ 過去7日分のデータをChartで表示
+CoreDataからタスクデータを取得して、完了済みのタスクの合計時間を過去7日分Chartで表示しました。
+↓Chart
+<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/0d5ad873-1657-425a-9148-a3754e0ed612">
+
+https://github.com/CodeCandySchool/GoodPostureStudy_ryu/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/ViewModel/BarMarkViewModel.swift#L10-L127
 
 ## 9. アプリ起動方法（オプション）
 ローカルマシンでプロジェクトを実行する方法について記述をします。

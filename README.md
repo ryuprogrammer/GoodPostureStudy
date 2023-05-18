@@ -10,7 +10,11 @@
 <img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/dfe65b1f-3b06-4f03-a6ab-05aa12d5085a">
 
 ## 3. アプリの動作
-Gifを作成中
+### タスクの追加方法
+タスク内容、アイコンの色、時間を入力するだけで簡単に追加できます。
+
+<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/acf5eae5-7eff-4bf1-8a35-0790fec248b4">
+
 
 ##  4. ダウンロードリンク
 ↓ダウンロードリンクを画像に埋め込みたいが、方法がわからない。

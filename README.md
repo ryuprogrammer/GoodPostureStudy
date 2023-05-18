@@ -15,6 +15,8 @@
 
 <img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/acf5eae5-7eff-4bf1-8a35-0790fec248b4">
 
+### 姿勢の検知
+姿勢を検知して、正しい姿勢の時だけタイマーが進みます。
 <img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/d77f7e81-32e9-4330-aac3-b644c45b4655">
 
 

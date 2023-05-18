@@ -21,8 +21,12 @@ https://apps.apple.com/jp/app/%E3%83%9D%E3%82%B9%E3%82%BF/id6448646839
 
 ここから以降は、主にエンジニアチームに向けてのアピールです。
 
-## 6. 内部設計書
-内部設計を表現するものを作成します。
+## 6. アプリの設計について
+<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/897116c8-d0bf-48ca-8548-560eeac9e49c">
+<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/95b434ac-2d3d-4220-bfaf-7408596ed437">
+<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/4f2ebd07-1acc-4e67-b4af-e90203d0fc34">
+<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/2e30f7e3-0c01-4df4-afbf-29eaff5053ca">
+
 
 - フローチャート
 こちらで[フローチャートについて学習をして](https://cacoo.com/ja/blog/keep-it-simple-how-to-avoid-overcomplicating-your-flowcharts/)、フローチャートを記述してみてください。

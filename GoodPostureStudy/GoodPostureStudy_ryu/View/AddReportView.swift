@@ -117,8 +117,12 @@ struct AddReportView: View {
     }
 }
 
-// struct AddReportView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddReportView(, addTask: Task)
-//    }
-// }
+struct AddReportView_Previews: PreviewProvider {
+    static var previews: some View {
+        let task = Task(context: PersistenceController.preview.container.viewContext)
+        task.task = "サンプルタスク"
+        task.startTime = Date()
+        task.endTime = Date()+(60*60)
+        return AddReportView(addTask: task)
+    }
+}

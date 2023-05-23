@@ -68,7 +68,7 @@ struct TaskCardView: View {
                   let end = task.endTime else {
                 return
             }
-            
+
             taskColor = Color(taskColorName: colorName)
             taskContent = content
             startTime = start

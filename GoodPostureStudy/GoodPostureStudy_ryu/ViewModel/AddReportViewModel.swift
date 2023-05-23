@@ -35,10 +35,15 @@ class AddReportViewModel: ObservableObject {
     // 編集するタスク内容を渡す
     func store(task: Task) {
         self.task = task
-        content = task.task ?? ""
-        color = task.color ?? ""
-        startTime = task.startTime ?? Date()
-        endTime = task.endTime ?? Date() + (60*60)
+        if let taskCantent = task.task,
+           let taskColor = task.color,
+           let taskStartTime = task.startTime,
+           let taskEndTime = task.endTime {
+            content = taskCantent
+            color = taskColor
+            startTime = taskStartTime
+            endTime = taskEndTime
+        }
     }
 
     // 編集したタスク内容を保存

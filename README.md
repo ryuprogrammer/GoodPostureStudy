@@ -22,8 +22,7 @@
 
 
 ##  4. ダウンロードリンク
-↓ダウンロードリンクを画像に埋め込みたいが、方法がわからない。
-https://apps.apple.com/jp/app/%E3%83%9D%E3%82%B9%E3%82%BF/id6448646839
+[![App_Store_Badge_JP](https://user-images.githubusercontent.com/68992872/204145956-f5cc0fa8-d4c9-4f2c-b1d4-3c3b1d2e2aba.png)](https://apps.apple.com/jp/app/%E3%83%9D%E3%82%B9%E3%82%BF/id6448646839)
 
 ## 5. 今後追加する機能
 今後はStudyPlus（勉強版Twitter）に完了したタスクを登録する機能を実装します！

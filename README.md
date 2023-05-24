@@ -35,11 +35,6 @@
 <img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/4f2ebd07-1acc-4e67-b4af-e90203d0fc34">
 <img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/2e30f7e3-0c01-4df4-afbf-29eaff5053ca">
 
-
-- フローチャート
-こちらで[フローチャートについて学習をして](https://cacoo.com/ja/blog/keep-it-simple-how-to-avoid-overcomplicating-your-flowcharts/)、フローチャートを記述してみてください。
-Miroでも、Keynoteでも、フリーボードでも作成しやすいツールで構わないです。
-
 ## 7. MVVMの構成図
 参考情報の他の受講生のポートフォリオを参考にして、MVVMの構成図を作成してください。
 
@@ -47,16 +42,15 @@ Miroでも、Keynoteでも、フリーボードでも作成しやすいツール
 プロジェクトで工夫した設計や、コードを具体的に示してください。
 該当コードを示して、どんな工夫をしたのか分かりやすく記載してください。
 ### ポイント１ タスクをタイムチャートで表示
-タスクの開始時間と終了時間を可視化するためにタイムチャートを作成しました。
-↓タイムチャート
-<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/c693b9d4-d165-4f24-8c86-bb3d8ed56e55">
-
+タスクの開始時間と終了時間を可視化するためにタイムチャートを作成しました。  
+<img width="250" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/ef8e19c5-98bd-4ecc-a54d-6463131f2a27">  
+タイムチャート  
 https://github.com/ryuprogrammer/GoodPostureStudy/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/View/ViewMaterial/CircularTimeBarView.swift#L27-L100
 
 ### ポイント２ 過去7日分のデータをChartで表示
-CoreDataからタスクデータを取得して、完了済みのタスクの合計時間を過去7日分Chartで表示しました。
-↓Chart
-<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/0d5ad873-1657-425a-9148-a3754e0ed612">
+CoreDataからタスクデータを取得して、完了済みのタスクの合計時間を過去7日分Chartで表示しました。  
+<img width="250" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/1c8f7ac7-2642-4f4e-a478-00d4a16aa825">  
+過去7日分のレポート  
 
 https://github.com/ryuprogrammer/GoodPostureStudy/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/ViewModel/BarMarkViewModel.swift#L10-L127
 

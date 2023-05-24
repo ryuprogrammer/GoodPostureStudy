@@ -1,25 +1,24 @@
 # 姿勢管理アプリ『ポスタ』
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/703bb223-1f0b-4433-84bf-757cb961ccb3">
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/3afb8603-3f80-4071-8fac-e6324719600d">
 
 ## 1. 概要・コンセプト
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/96f56a45-2cc0-4ebb-a94b-8e884ad554e7">
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/af465015-c5e7-4353-a525-8a94c61a5dd6">
 
 ## 2. アプリの機能３つ
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/440cc39f-82bd-44a0-8b6c-bd75f3dcd9e9">
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/126a9cc9-af43-4eeb-9cb5-e31910bde801">
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/dfe65b1f-3b06-4f03-a6ab-05aa12d5085a">
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/03be2a1c-9d27-495f-a7e4-1046e4f47e87">
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/254ef1ae-907a-4cce-b5c6-2d9219e6ea3e">
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/2ee0a50e-b723-473b-b0f3-aaa052e42284">
 
 ## 3. アプリの動作
 ### タスクの追加方法
 タスク内容、アイコンの色、時間を入力するだけで簡単に追加できます。
 
-<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/acf5eae5-7eff-4bf1-8a35-0790fec248b4">
+<img width="200" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/9ba70427-f6b3-43ad-9a2f-733bb0675b1c">
 
 ### 姿勢の検知
 姿勢を検知して、正しい姿勢の時だけタイマーが進みます。
 
-<img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/d77f7e81-32e9-4330-aac3-b644c45b4655">
-
+<img width="200" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/6e962bd2-961b-4a5c-b5e9-3e3c2fc8b2fc">
 
 ##  4. ダウンロードリンク
 [![App_Store_Badge_JP](https://user-images.githubusercontent.com/68992872/204145956-f5cc0fa8-d4c9-4f2c-b1d4-3c3b1d2e2aba.png)](https://apps.apple.com/jp/app/%E3%83%9D%E3%82%B9%E3%82%BF/id6448646839)
@@ -27,16 +26,15 @@
 ## 5. 今後追加する機能
 今後はStudyPlus（勉強版Twitter）に完了したタスクを登録する機能を実装します！
 
-ここから以降は、主にエンジニアチームに向けてのアピールです。
-
-## 6. アプリの設計について
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/897116c8-d0bf-48ca-8548-560eeac9e49c">
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/95b434ac-2d3d-4220-bfaf-7408596ed437">
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/4f2ebd07-1acc-4e67-b4af-e90203d0fc34">
-<img width="600" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/2e30f7e3-0c01-4df4-afbf-29eaff5053ca">
-
-## 7. MVVMの構成図
-参考情報の他の受講生のポートフォリオを参考にして、MVVMの構成図を作成してください。
+## 6. MVVMの構成図  
+・View   
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/e775d227-ba7e-4f22-8b16-ccc006e46749">  
+・ViewModel  
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/25031846-a2d9-4752-af3f-f0e24b323406">  
+・Model  
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/db262571-66c4-4d95-a49d-9731985fd715">  
+・Extension  
+<img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/a897c75e-00d8-45bd-9045-41b00b025149">  
 
 ## 8. 工夫したコード／設計
 プロジェクトで工夫した設計や、コードを具体的に示してください。

@@ -51,16 +51,16 @@ Miroでも、Keynoteでも、フリーボードでも作成しやすいツール
 ↓タイムチャート
 <img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/c693b9d4-d165-4f24-8c86-bb3d8ed56e55">
 
-https://github.com/CodeCandySchool/GoodPostureStudy_ryu/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/View/ViewMaterial/CircularTimeBarView.swift#L27-L100
+https://github.com/ryuprogrammer/GoodPostureStudy/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/View/ViewMaterial/CircularTimeBarView.swift#L27-L100
 
 ### ポイント２ 過去7日分のデータをChartで表示
 CoreDataからタスクデータを取得して、完了済みのタスクの合計時間を過去7日分Chartで表示しました。
 ↓Chart
 <img width="200" src="https://github.com/CodeCandySchool/GoodPostureStudy_ryu/assets/120238831/0d5ad873-1657-425a-9148-a3754e0ed612">
 
-https://github.com/CodeCandySchool/GoodPostureStudy_ryu/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/ViewModel/BarMarkViewModel.swift#L10-L127
+https://github.com/ryuprogrammer/GoodPostureStudy/blob/031942d3ee0d5546858dbe470d83b084358d590a/GoodPostureStudy_ryu/GoodPostureStudy_ryu/ViewModel/BarMarkViewModel.swift#L10-L127
 
 ## 9 その他リンク
-[ホームページ](https://y70ns.hp.peraichi.com/posta)
+[ホームページ](https://y70ns.hp.peraichi.com/posta)  
 [作成者Twitter](https://twitter.com/engineerforios?s=11&t=E3_w-CiFaS5cBpi-By2fYg)
 

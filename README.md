@@ -37,6 +37,20 @@
 ・Extension  
 <img width="600" src="https://github.com/ryuprogrammer/GoodPostureStudy/assets/120238831/a897c75e-00d8-45bd-9045-41b00b025149">  
 
+## 7. フローチャート
+[![](https://mermaid.ink/img/pako:eNqFUz1PwzAQ_SuRJ5CaAcYMSEAHFiQEiAUzmNqlURu7chxVqOlAIr7KAFMRsAACFTEAAwsI6I-xUuBf4CSt4raRyOR7vnvv7l3cBCWGCbCAaZqQClvUiGVE3V50cvv9dPN9diCDWxmey_AR0iSlXGONUgVxAamhPtfb3uGoXjE2bNJIoSXmkCxaYHh3hbkaMo9xFqySOuMiiwnFkOZQL6sua6P8GqSLaPBAaRTJFDU8F8zrRbteR261iATSINWD8Dj5h8NMYxvPbE4tMk5ikumtITjbbG7Yrs2oUebIIQ3Gq62WRhYfYsrBcIZpzvk_vc-ofe2PDTw0KkmRQU8GbzJ4jo7bvxd3_riNExYmVemfEB3dRU-X_tguM4Esf0JlzCS9wVRg_z5qX8lwTwZdGYaqcqJGN1Vv6rQTfZ37ebuHdIQiKepfvfY7L37seh7le7f_cCHDQxl-qBmG3GoboAAcwh1kY_VImrH9EIgKcQgEljpixKsQQNpSecgTbG2XloAluEcKwKtjJEjRRmrtDrDKqOYqlGBbML6cvrrk8bX-AP_ZYMk?type=png)](https://mermaid.live/edit#pako:eNqFUz1PwzAQ_SuRJ5CaAcYMSEAHFiQEiAUzmNqlURu7chxVqOlAIr7KAFMRsAACFTEAAwsI6I-xUuBf4CSt4raRyOR7vnvv7l3cBCWGCbCAaZqQClvUiGVE3V50cvv9dPN9diCDWxmey_AR0iSlXGONUgVxAamhPtfb3uGoXjE2bNJIoSXmkCxaYHh3hbkaMo9xFqySOuMiiwnFkOZQL6sua6P8GqSLaPBAaRTJFDU8F8zrRbteR261iATSINWD8Dj5h8NMYxvPbE4tMk5ikumtITjbbG7Yrs2oUebIIQ3Gq62WRhYfYsrBcIZpzvk_vc-ofe2PDTw0KkmRQU8GbzJ4jo7bvxd3_riNExYmVemfEB3dRU-X_tguM4Esf0JlzCS9wVRg_z5qX8lwTwZdGYaqcqJGN1Vv6rQTfZ37ebuHdIQiKepfvfY7L37seh7le7f_cCHDQxl-qBmG3GoboAAcwh1kY_VImrH9EIgKcQgEljpixKsQQNpSecgTbG2XloAluEcKwKtjJEjRRmrtDrDKqOYqlGBbML6cvrrk8bX-AP_ZYMk)
+
+AddView -->|追加| AddViewModel
+HomeView -->|タスク削除| HomeViewModel
+BodyPoseViewModel -->|姿勢判定| BodyPoseView
+
+HomeViewModel -->|タスク削除| TaskDataModel
+AddViewModel -->|入力チェック| TaskDataModel
+PostureModel -->|姿勢取得| BodyPoseViewModel
+
+TaskDataModel -->|更新| id1
+PostureModel -->|座標データ取得| id2
+
 ## 8. 工夫したコード／設計
 プロジェクトで工夫した設計や、コードを具体的に示してください。
 該当コードを示して、どんな工夫をしたのか分かりやすく記載してください。
